@@ -84,3 +84,4 @@ sudo firewall-cmd --reload
 7. Once imported all paragraphs will run for the first time.
 
 8. You can create new notes that would use different interpreter, i.e. Spark, Python, Java. etc.
+<insert picture here Maria>
