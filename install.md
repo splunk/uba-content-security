@@ -85,7 +85,7 @@ sudo firewall-cmd --reload
 ![alt text](https://github.com/splunk/uba-content-security/blob/main/select-file.png)
 
 ### 7. Once imported all paragraphs will run for the first time.
-![alt text](https://github.com/splunk/uba-content-security/blob/main/zeppelin-result.png)
+
 
 ### 8. You can create new notes that would use different interpreter, i.e. Spark, Python, Java. etc.
 ![alt text](https://github.com/splunk/uba-content-security/blob/main/new-note.png)
