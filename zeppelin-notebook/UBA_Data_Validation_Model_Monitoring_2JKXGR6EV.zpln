@@ -1,9 +1,10 @@
 ﻿{
   "paragraphs": [
     {
-      "text": "%md # UBA Data Validation and Model Monitoring\n\nThe notebook showcase some useful examples for data validation and model monitoring to help resolve system scaliblity issues at the early stage. \n\nMore examples can be provided Based on feedback.\nNote: to secure the security of customer datasets, the notebook was run on single-node UBA testing VM using synthetic datasets. The installation has been also tested in a multi-node deployment environment.",
+      "title": "To Get Started",
+      "text": "%md # UBA Data Validation and Model Monitoring\n\nThe notebook showcase some useful examples for data validation and model monitoring to help resolve system scaliblity issues at the early stage. \n\nMore examples can be provided based on feedback.\nNote: to secure the customer datasets, the notebook was run on single-node UBA testing VM using synthetic datasets. The installation has been also tested in a multi-node deployment environment.",
       "user": "anonymous",
-      "dateUpdated": "2024-01-26T10:31:08-0800",
+      "dateUpdated": "2024-01-26T14:49:32-0800",
       "progress": 0,
       "config": {
         "tableHide": false,
@@ -30,7 +31,7 @@
         "msg": [
           {
             "type": "HTML",
-            "data": "<div class=\"markdown-body\">\n<h1>UBA Data Validation and Model Monitoring</h1>\n<p>The notebook showcase some useful examples for data validation and model monitoring to help resolve system scaliblity issues at the early stage.</p>\n<p>More examples can be provided Based on feedback.<br />\nNote: to secure the security of customer datasets, the notebook was run on single-node UBA testing VM using synthetic datasets. The installation has been also tested in a multi-node deployment environment.</p>\n\n</div>"
+            "data": "<div class=\"markdown-body\">\n<h1>UBA Data Validation and Model Monitoring</h1>\n<p>The notebook showcase some useful examples for data validation and model monitoring to help resolve system scaliblity issues at the early stage.</p>\n<p>More examples can be provided based on feedback.<br />\nNote: to secure the customer datasets, the notebook was run on single-node UBA testing VM using synthetic datasets. The installation has been also tested in a multi-node deployment environment.</p>\n\n</div>"
           }
         ]
       },
@@ -40,17 +41,16 @@
       "jobName": "paragraph_1705099547764_95793529",
       "id": "paragraph_1705099547764_95793529",
       "dateCreated": "2024-01-12T14:45:47-0800",
-      "dateStarted": "2024-01-26T10:31:08-0800",
-      "dateFinished": "2024-01-26T10:31:08-0800",
+      "dateStarted": "2024-01-26T14:49:32-0800",
+      "dateFinished": "2024-01-26T14:49:32-0800",
       "status": "FINISHED",
       "focus": true,
-      "$$hashKey": "object:186",
-      "title": "To Get Started"
+      "$$hashKey": "object:186"
     },
     {
       "text": "%md ## Validate the scale from data sources\nThrough the sample notebook, you may track the event processing count, the Maximum, Minimum, and Average EPS values. Currently UBA secures the scale of EPS value under 160K.",
       "user": "anonymous",
-      "dateUpdated": "2024-01-25T17:51:03-0800",
+      "dateUpdated": "2024-01-26T11:16:08-0800",
       "progress": 0,
       "config": {
         "tableHide": false,
@@ -86,16 +86,16 @@
       "jobName": "paragraph_1705099597767_1728533725",
       "id": "paragraph_1705099597767_1728533725",
       "dateCreated": "2024-01-12T14:46:37-0800",
-      "dateStarted": "2024-01-25T17:51:03-0800",
-      "dateFinished": "2024-01-25T17:51:03-0800",
+      "dateStarted": "2024-01-26T11:16:08-0800",
+      "dateFinished": "2024-01-26T11:16:08-0800",
       "status": "FINISHED",
       "$$hashKey": "object:187"
     },
     {
-      "title": "validate the real-time EPS values from data sources",
+      "title": "check the real-time EPS values from data sources",
       "text": "\n%sh /opt/caspida/bin/status/eps_ds\n",
       "user": "anonymous",
-      "dateUpdated": "2024-01-25T17:39:21-0800",
+      "dateUpdated": "2024-01-26T14:52:09-0800",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -138,10 +138,10 @@
       "$$hashKey": "object:188"
     },
     {
-      "title": "validate the real-time EPS values from ETL",
+      "title": "check the real-time EPS values from ETL",
       "text": "%sh /opt/caspida/bin/status/eps_etl\n",
       "user": "anonymous",
-      "dateUpdated": "2024-01-25T17:39:21-0800",
+      "dateUpdated": "2024-01-26T14:52:13-0800",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -183,10 +183,10 @@
       "$$hashKey": "object:189"
     },
     {
-      "title": "validate the real-time EPS values from Identity Resolution",
+      "title": "check the real-time EPS values from Identity Resolution",
       "text": "%sh /opt/caspida/bin/status/eps_ir\n",
       "user": "anonymous",
-      "dateUpdated": "2024-01-25T17:39:21-0800",
+      "dateUpdated": "2024-01-26T14:52:16-0800",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -226,6 +226,51 @@
       "dateFinished": "2024-01-25T17:22:43-0800",
       "status": "FINISHED",
       "$$hashKey": "object:190"
+    },
+    {
+      "title": "retrieve EPS statistics from all data sources",
+      "text": "%sh psql -d caspidadb -c \"SELECT DISTINCT ON (d.name) d.name, d.type, d.status, d.error, d.format, date_trunc('Seconds',cstats.lastprocessed) as lastprocessed, cstats.epsjson::json->>'EPS' as recent_eps, cstats.epsjson::json->>'Avg EPS' as average_eps, cstats.epsjson::json->>'Max EPS' as max_eps, dstats.countevents, dstats.countfailedevents, dstats.countskippedevents, (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents) as success_perc, \\\n                case \\\n                  when d.status != 'Processing' then '' \\\n                  when (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents)=0 then '   <== utter failure; events not processed; review datasource SPL' \\\n                  when (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents)=100 then '(complete success)' \\\n                  when (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents)<=40 then '   <== significant failed/skipped events; review datasource SPL' \\\n                  when (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents)<=70 then '   <= check failed/skipped events; review datasource SPL' \\\n                  else '' end as observation \\\n                FROM connectorstats as cstats \\\n                INNER JOIN datasourcestats as dstats on cstats.id = dstats.id \\\n                INNER JOIN datasources as d on cstats.id = d.id WHERE cstats.lastprocessed IS NOT NULL AND dstats.countevents!=0 ORDER BY name, lastmodified DESC; \\\n\t\t\"",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T14:55:20-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "                   name                    | type |  status   | error |          format           |    lastprocessed    | recent_eps | average_eps | max_eps | countevents | countfailedevents | countskippedevents | success_perc | observation \n-------------------------------------------+------+-----------+-------+---------------------------+---------------------+------------+-------------+---------+-------------+-------------------+--------------------+--------------+-------------\n 0_resolution-demoandbackground.infoblox   | File | Completed |       | INFOBLOX                  | 2024-01-12 15:45:59 | 1040       | 1040        | 1040    |        5200 |                 0 |                  0 |          100 | \n 20noderesolve.infoblox.gz                 | File | Completed |       | INFOBLOX                  | 2024-01-12 15:51:13 | 6925       | 5209        | 7666    |      744603 |                 0 |                  0 |          100 | \n demoandbackground.ad_multiline.gz         | File | Completed |       | AD/MULTILINE              | 2024-01-12 15:51:24 | 99         | 99          | 99      |        1492 |                 0 |                984 |           35 | \n demoandbackground.ad_snare_flat.gz        | File | Completed |       | AD/SNARE_FLAT             | 2024-01-12 15:51:03 | 701        | 1600        | 2500    |      160523 |                 0 |                  0 |          100 | \n demoandbackground.box_events.gz           | File | Completed |       | BOX/EVENTS                | 2024-01-12 15:51:16 | 8          | 8           | 8       |         131 |                 0 |                  0 |          100 | \n demoandbackground.box.gz                  | File | Completed |       | BOX                       | 2024-01-12 15:51:38 | 8          | 8           | 8       |          84 |                 0 |                  0 |          100 | \n demoandbackground.brivo.gz                | File | Completed |       | DYNAMIC/BRIVO_BADGEACCESS | 2024-01-12 15:51:06 | 66         | 66          | 66      |         667 |                 0 |                  0 |          100 | \n demoandbackground.cef.gz                  | File | Completed |       | CEF                       | 2024-01-12 15:51:05 | 7          | 7           | 7       |          73 |                 0 |                  0 |          100 | \n demoandbackground.ciscosa.gz              | File | Completed |       | CISCOSA                   | 2024-01-12 15:51:28 | 320        | 320         | 320     |        4810 |                 0 |                  0 |          100 | \n demoandbackground.o365_sharepoint.gz      | File | Completed |       | O365/SHAREPOINT           | 2024-01-12 15:51:00 | 12         | 12          | 12      |          60 |                 0 |                  0 |          100 | \n demoandbackground.pan.gz                  | File | Completed |       | PAN                       | 2024-01-12 15:51:04 | 2963       | 4047        | 8083    |      777602 |                 0 |             102031 |           87 | \n demoandbackground.splunk_cs.gz            | File | Completed |       | DYNAMIC/ESRULES           | 2024-01-12 15:51:07 | 1          | 1           | 1       |          10 |                 0 |                  0 |          100 | \n demoandbackground.symantecdlp_endpoint.gz | File | Completed |       | SYMANTECDLP/ENDPOINT      | 2024-01-12 15:51:01 | 24         | 24          | 24      |         124 |                 0 |                  0 |          100 | \n demoandbackground.webgateway.gz           | File | Completed |       | WEBGATEWAY                | 2024-01-12 15:51:34 | 1612       | 1612        | 1612    |       40305 |                 0 |                  0 |          100 | \n demoandbackground.weblog.gz               | File | Completed |       | WEBLOG                    | 2024-01-12 15:51:09 | 3723       | 2824        | 3723    |      297278 |                 0 |                  0 |          100 | \n(15 rows)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705800968627_396253184",
+      "id": "paragraph_1705800968627_396253184",
+      "dateCreated": "2024-01-20T17:36:08-0800",
+      "dateStarted": "2024-01-26T09:50:29-0800",
+      "dateFinished": "2024-01-26T09:50:30-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:191"
     },
     {
       "title": "retrieve ID from specific data source ",
@@ -271,7 +316,7 @@
       "dateStarted": "2024-01-25T17:42:06-0800",
       "dateFinished": "2024-01-25T17:42:06-0800",
       "status": "FINISHED",
-      "$$hashKey": "object:191"
+      "$$hashKey": "object:192"
     },
     {
       "title": "retrieve EPS statistics from specific data source",
@@ -316,51 +361,6 @@
       "dateCreated": "2024-01-12T14:49:26-0800",
       "dateStarted": "2024-01-25T17:43:17-0800",
       "dateFinished": "2024-01-25T17:43:17-0800",
-      "status": "FINISHED",
-      "$$hashKey": "object:192"
-    },
-    {
-      "title": "retrieve EPS statistics from all data sources",
-      "text": "\n%sh psql -d caspidadb -c \"SELECT DISTINCT ON (d.name) d.name, d.type, d.status, d.error, d.format, date_trunc('Seconds',cstats.lastprocessed) as lastprocessed, cstats.epsjson::json->>'EPS' as recent_eps, cstats.epsjson::json->>'Avg EPS' as average_eps, cstats.epsjson::json->>'Max EPS' as max_eps, dstats.countevents, dstats.countfailedevents, dstats.countskippedevents, (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents) as success_perc, \\\n                case \\\n                  when d.status != 'Processing' then '' \\\n                  when (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents)=0 then '   <== utter failure; events not processed; review datasource SPL' \\\n                  when (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents)=100 then '(complete success)' \\\n                  when (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents)<=40 then '   <== significant failed/skipped events; review datasource SPL' \\\n                  when (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents)<=70 then '   <= check failed/skipped events; review datasource SPL' \\\n                  else '' end as observation \\\n                FROM connectorstats as cstats \\\n                INNER JOIN datasourcestats as dstats on cstats.id = dstats.id \\\n                INNER JOIN datasources as d on cstats.id = d.id WHERE cstats.lastprocessed IS NOT NULL AND dstats.countevents!=0 ORDER BY name, lastmodified DESC; \\\n\t\t\"",
-      "user": "anonymous",
-      "dateUpdated": "2024-01-26T09:50:29-0800",
-      "progress": 0,
-      "config": {
-        "editorSetting": {
-          "language": "sh",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "colWidth": 12,
-        "editorMode": "ace/mode/sh",
-        "fontSize": 9,
-        "results": {},
-        "enabled": true,
-        "editorHide": false,
-        "title": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "                   name                    | type |  status   | error |          format           |    lastprocessed    | recent_eps | average_eps | max_eps | countevents | countfailedevents | countskippedevents | success_perc | observation \n-------------------------------------------+------+-----------+-------+---------------------------+---------------------+------------+-------------+---------+-------------+-------------------+--------------------+--------------+-------------\n 0_resolution-demoandbackground.infoblox   | File | Completed |       | INFOBLOX                  | 2024-01-12 15:45:59 | 1040       | 1040        | 1040    |        5200 |                 0 |                  0 |          100 | \n 20noderesolve.infoblox.gz                 | File | Completed |       | INFOBLOX                  | 2024-01-12 15:51:13 | 6925       | 5209        | 7666    |      744603 |                 0 |                  0 |          100 | \n demoandbackground.ad_multiline.gz         | File | Completed |       | AD/MULTILINE              | 2024-01-12 15:51:24 | 99         | 99          | 99      |        1492 |                 0 |                984 |           35 | \n demoandbackground.ad_snare_flat.gz        | File | Completed |       | AD/SNARE_FLAT             | 2024-01-12 15:51:03 | 701        | 1600        | 2500    |      160523 |                 0 |                  0 |          100 | \n demoandbackground.box_events.gz           | File | Completed |       | BOX/EVENTS                | 2024-01-12 15:51:16 | 8          | 8           | 8       |         131 |                 0 |                  0 |          100 | \n demoandbackground.box.gz                  | File | Completed |       | BOX                       | 2024-01-12 15:51:38 | 8          | 8           | 8       |          84 |                 0 |                  0 |          100 | \n demoandbackground.brivo.gz                | File | Completed |       | DYNAMIC/BRIVO_BADGEACCESS | 2024-01-12 15:51:06 | 66         | 66          | 66      |         667 |                 0 |                  0 |          100 | \n demoandbackground.cef.gz                  | File | Completed |       | CEF                       | 2024-01-12 15:51:05 | 7          | 7           | 7       |          73 |                 0 |                  0 |          100 | \n demoandbackground.ciscosa.gz              | File | Completed |       | CISCOSA                   | 2024-01-12 15:51:28 | 320        | 320         | 320     |        4810 |                 0 |                  0 |          100 | \n demoandbackground.o365_sharepoint.gz      | File | Completed |       | O365/SHAREPOINT           | 2024-01-12 15:51:00 | 12         | 12          | 12      |          60 |                 0 |                  0 |          100 | \n demoandbackground.pan.gz                  | File | Completed |       | PAN                       | 2024-01-12 15:51:04 | 2963       | 4047        | 8083    |      777602 |                 0 |             102031 |           87 | \n demoandbackground.splunk_cs.gz            | File | Completed |       | DYNAMIC/ESRULES           | 2024-01-12 15:51:07 | 1          | 1           | 1       |          10 |                 0 |                  0 |          100 | \n demoandbackground.symantecdlp_endpoint.gz | File | Completed |       | SYMANTECDLP/ENDPOINT      | 2024-01-12 15:51:01 | 24         | 24          | 24      |         124 |                 0 |                  0 |          100 | \n demoandbackground.webgateway.gz           | File | Completed |       | WEBGATEWAY                | 2024-01-12 15:51:34 | 1612       | 1612        | 1612    |       40305 |                 0 |                  0 |          100 | \n demoandbackground.weblog.gz               | File | Completed |       | WEBLOG                    | 2024-01-12 15:51:09 | 3723       | 2824        | 3723    |      297278 |                 0 |                  0 |          100 | \n(15 rows)\n\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1705800968627_396253184",
-      "id": "paragraph_1705800968627_396253184",
-      "dateCreated": "2024-01-20T17:36:08-0800",
-      "dateStarted": "2024-01-26T09:50:29-0800",
-      "dateFinished": "2024-01-26T09:50:30-0800",
       "status": "FINISHED",
       "$$hashKey": "object:193"
     },
@@ -455,10 +455,10 @@
       "$$hashKey": "object:195"
     },
     {
-      "title": "check the number of registered users",
+      "title": "count the number of users from HRData (LDAP)",
       "text": "%sh psql -d caspidadb -c 'select count(*) from hrdatausers';\n",
       "user": "anonymous",
-      "dateUpdated": "2024-01-25T18:09:26-0800",
+      "dateUpdated": "2024-01-26T15:31:27-0800",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -494,16 +494,16 @@
       "jobName": "paragraph_1706233941256_730606348",
       "id": "paragraph_1706233941256_730606348",
       "dateCreated": "2024-01-25T17:52:21-0800",
-      "dateStarted": "2024-01-25T18:09:25-0800",
-      "dateFinished": "2024-01-25T18:09:25-0800",
+      "dateStarted": "2024-01-26T15:06:31-0800",
+      "dateFinished": "2024-01-26T15:06:31-0800",
       "status": "FINISHED",
       "$$hashKey": "object:196"
     },
     {
-      "title": "check the number of OU group for the enterprise",
-      "text": "%sh  psql -d caspidadb -c \"select distinct(ou) from hrdatausers;\"\n",
+      "title": "count the number of actual users with activities from data sources",
+      "text": "%sh psql -d caspidadb -c 'select count(*) from users';\n",
       "user": "anonymous",
-      "dateUpdated": "2024-01-25T18:10:00-0800",
+      "dateUpdated": "2024-01-26T15:31:31-0800",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -528,7 +528,51 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "       ou       \n----------------\n Helpdesk\n Engineering\n IT\n Executive\n Marketing\n Administrators\n \n Dev Ops\n Finance\n HR\n Sales\n Support\n(12 rows)\n\n"
+            "data": " count \n-------\n   130\n(1 row)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706310087172_1193229437",
+      "id": "paragraph_1706310087172_1193229437",
+      "dateCreated": "2024-01-26T15:01:27-0800",
+      "dateStarted": "2024-01-26T15:01:39-0800",
+      "dateFinished": "2024-01-26T15:01:39-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:197"
+    },
+    {
+      "title": "check the number of OU group for the enterprise",
+      "text": "%sh  psql -d caspidadb -c \"select count(*), ou from hrdatausers group by ou;\"\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T15:30:32-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " count |       ou       \n-------+----------------\n    62 | Helpdesk\n   445 | Engineering\n    56 | IT\n     1 | Executive\n    60 | Marketing\n    30 | Administrators\n     6 | \n   109 | Dev Ops\n    18 | Finance\n    77 | HR\n   217 | Sales\n    55 | Support\n(12 rows)\n\n"
           }
         ]
       },
@@ -538,16 +582,16 @@
       "jobName": "paragraph_1706233974059_1884565458",
       "id": "paragraph_1706233974059_1884565458",
       "dateCreated": "2024-01-25T17:52:54-0800",
-      "dateStarted": "2024-01-25T18:09:58-0800",
-      "dateFinished": "2024-01-25T18:09:59-0800",
+      "dateStarted": "2024-01-26T15:30:32-0800",
+      "dateFinished": "2024-01-26T15:30:33-0800",
       "status": "FINISHED",
-      "$$hashKey": "object:197"
+      "$$hashKey": "object:198"
     },
     {
       "title": "check the categories of accounts",
-      "text": "\n%sh  psql -d caspidadb -c \"select distinct (hraccounttype) from hrdataaccounts;\"\n",
+      "text": "\n%sh  psql -d caspidadb -c \"select count(*), hraccounttype from hrdataaccounts group by hraccounttype;\"\n",
       "user": "anonymous",
-      "dateUpdated": "2024-01-26T09:51:16-0800",
+      "dateUpdated": "2024-01-26T15:29:44-0800",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -572,7 +616,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": " hraccounttype \n---------------\n Normal\n Service\n Admin\n(3 rows)\n\n"
+            "data": " count | hraccounttype \n-------+---------------\n  1101 | Normal\n     6 | Service\n    29 | Admin\n(3 rows)\n\n"
           }
         ]
       },
@@ -582,60 +626,15 @@
       "jobName": "paragraph_1706234041924_2093462282",
       "id": "paragraph_1706234041924_2093462282",
       "dateCreated": "2024-01-25T17:54:01-0800",
-      "dateStarted": "2024-01-25T18:11:04-0800",
-      "dateFinished": "2024-01-25T18:11:04-0800",
-      "status": "FINISHED",
-      "$$hashKey": "object:198"
-    },
-    {
-      "title": "show the types of registered devices",
-      "text": "%sh psql -d caspidadb -c \"select distinct (type)from usystems;\"\n",
-      "user": "anonymous",
-      "dateUpdated": "2024-01-26T09:53:17-0800",
-      "progress": 0,
-      "config": {
-        "editorSetting": {
-          "language": "sh",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "colWidth": 12,
-        "editorMode": "ace/mode/sh",
-        "fontSize": 9,
-        "title": true,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "  type   \n---------\n Client\n Server\n Unknown\n(3 rows)\n\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1706242158076_42395517",
-      "id": "paragraph_1706242158076_42395517",
-      "dateCreated": "2024-01-25T20:09:18-0800",
-      "dateStarted": "2024-01-26T09:53:15-0800",
-      "dateFinished": "2024-01-26T09:53:15-0800",
+      "dateStarted": "2024-01-26T15:29:44-0800",
+      "dateFinished": "2024-01-26T15:29:44-0800",
       "status": "FINISHED",
       "$$hashKey": "object:199"
     },
     {
-      "title": "count the number of client-side devices",
-      "text": "%sh  psql -d caspidadb -c \"select count(*) from usystems where type='Client';\"",
+      "text": "%sh psql -d caspidadb -c \"select count(*), type from systems group by type;\"",
       "user": "anonymous",
-      "dateUpdated": "2024-01-26T10:01:53-0800",
+      "dateUpdated": "2024-01-26T15:28:38-0800",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -655,75 +654,33 @@
         "params": {},
         "forms": {}
       },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706311582153_839207530",
+      "id": "paragraph_1706311582153_839207530",
+      "dateCreated": "2024-01-26T15:26:22-0800",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:2610",
+      "dateFinished": "2024-01-26T15:28:31-0800",
+      "dateStarted": "2024-01-26T15:28:30-0800",
+      "title": "count the number of registered devices by type",
       "results": {
         "code": "SUCCESS",
         "msg": [
           {
             "type": "TEXT",
-            "data": " count  \n--------\n 858604\n(1 row)\n\n"
+            "data": " count  |   type    \n--------+-----------\n     17 | AD\n 850127 | Client\n      5 | Firewall\n      5 | Printer\n 867342 | Unknown\n      4 | USB\n      1 | VPNServer\n(7 rows)\n\n"
           }
         ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1706242692077_267021391",
-      "id": "paragraph_1706242692077_267021391",
-      "dateCreated": "2024-01-25T20:18:12-0800",
-      "dateStarted": "2024-01-26T09:53:34-0800",
-      "dateFinished": "2024-01-26T09:53:34-0800",
-      "status": "FINISHED",
-      "$$hashKey": "object:200"
-    },
-    {
-      "title": "count the number of servers",
-      "text": "%sh  psql -d caspidadb -c \"select count(*) from usystems where type='Server';\" \n",
-      "user": "anonymous",
-      "dateUpdated": "2024-01-26T10:01:41-0800",
-      "progress": 0,
-      "config": {
-        "editorSetting": {
-          "language": "sh",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "colWidth": 12,
-        "editorMode": "ace/mode/sh",
-        "fontSize": 9,
-        "title": true,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": " count \n-------\n     1\n(1 row)\n\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1706242851825_522240609",
-      "id": "paragraph_1706242851825_522240609",
-      "dateCreated": "2024-01-25T20:20:51-0800",
-      "dateStarted": "2024-01-26T09:51:19-0800",
-      "dateFinished": "2024-01-26T09:51:19-0800",
-      "status": "FINISHED",
-      "$$hashKey": "object:201"
+      }
     },
     {
       "title": "count the unresolved devices",
       "text": "%sh  psql -d caspidadb -c \"select count(*) from usystems where state = 'Unresolved';\" \n",
       "user": "anonymous",
-      "dateUpdated": "2024-01-26T10:01:26-0800",
+      "dateUpdated": "2024-01-26T15:08:19-0800",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -758,54 +715,10 @@
       "jobName": "paragraph_1706234406331_1876970625",
       "id": "paragraph_1706234406331_1876970625",
       "dateCreated": "2024-01-25T18:00:06-0800",
-      "dateStarted": "2024-01-26T10:01:04-0800",
-      "dateFinished": "2024-01-26T10:01:05-0800",
+      "dateStarted": "2024-01-26T15:08:19-0800",
+      "dateFinished": "2024-01-26T15:08:19-0800",
       "status": "FINISHED",
-      "$$hashKey": "object:202"
-    },
-    {
-      "text": "\n%sh impala-shell -d caspida -q \"select count(distinct(sourceid)) from destinationports\";",
-      "user": "anonymous",
-      "dateUpdated": "2024-01-26T10:24:09-0800",
-      "progress": 0,
-      "config": {
-        "editorSetting": {
-          "language": "sh",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": false
-        },
-        "colWidth": 12,
-        "editorMode": "ace/mode/sh",
-        "fontSize": 9,
-        "title": true,
-        "results": {},
-        "enabled": true
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "Starting Impala Shell without Kerberos authentication\nOpened TCP connection to 6251ec511cee:21000\nConnected to 6251ec511cee:21000\nServer version: impalad version 3.2.0-cdh6.3.2 RELEASE (build 1bb9836227301b839a32c6bc230e35439d5984ac)\nQuery: use `caspida`\nQuery: use `caspida`\nQuery: select count(distinct(sourceid)) from destinationports\nQuery submitted at: 2024-01-26 01:55:37 (Coordinator: http://6251ec511cee:25000)\nQuery progress can be monitored at: http://6251ec511cee:25000/query_plan?query_id=044263533c98509c:76521c3700000000\n+----------------------------+\n| count(distinct (sourceid)) |\n+----------------------------+\n| 0                          |\n+----------------------------+\nFetched 1 row(s) in 0.23s\n"
-          }
-        ]
-      },
-      "apps": [],
-      "runtimeInfos": {},
-      "progressUpdateIntervalMs": 500,
-      "jobName": "paragraph_1706234127144_1028657729",
-      "id": "paragraph_1706234127144_1028657729",
-      "dateCreated": "2024-01-25T17:55:27-0800",
-      "dateStarted": "2024-01-25T17:55:37-0800",
-      "dateFinished": "2024-01-25T17:55:37-0800",
-      "status": "FINISHED",
-      "$$hashKey": "object:205",
-      "title": "Count the number of sourceid"
+      "$$hashKey": "object:203"
     },
     {
       "text": "%md ## Identify scalability issues from batch models\nYou may also check in real-time for any recurrent model failures, identify models with the longest durations. Monitor the long-running models if there are noticeable changes in the execution times, and engage with UBA Customer support if they cause system performance to be downgraded. ",
@@ -849,9 +762,10 @@
       "dateStarted": "2024-01-25T17:56:48-0800",
       "dateFinished": "2024-01-25T17:56:48-0800",
       "status": "FINISHED",
-      "$$hashKey": "object:206"
+      "$$hashKey": "object:205"
     },
     {
+      "title": "check long-duration models ",
       "text": "%sh impala-shell -d caspida -q 'select eventtime,modelname,durationinmilliseconds,successfulexecutions,failedexecutions from offlinemodelstats where failedexecutions=0 order by durationinmilliseconds desc limit 10;'\n",
       "user": "anonymous",
       "dateUpdated": "2024-01-26T10:07:34-0800",
@@ -894,10 +808,10 @@
       "dateStarted": "2024-01-26T10:07:32-0800",
       "dateFinished": "2024-01-26T10:07:33-0800",
       "status": "FINISHED",
-      "$$hashKey": "object:207",
-      "title": "check long-duration models "
+      "$$hashKey": "object:206"
     },
     {
+      "title": "check the most recent execution time for models",
       "text": "%sh impala-shell -d caspida --quiet -q \"select modelname, eventtime from (select modelname,eventtime,row_number() over (partition by modelname order by eventtime desc) as index from offlinemodelstats where failurereason = 'n/a') t where index = 1 order by 2 desc;\"\n",
       "user": "anonymous",
       "dateUpdated": "2024-01-26T10:12:11-0800",
@@ -940,8 +854,7 @@
       "dateStarted": "2024-01-26T10:12:09-0800",
       "dateFinished": "2024-01-26T10:12:10-0800",
       "status": "FINISHED",
-      "$$hashKey": "object:209",
-      "title": "check the most recent execution time for models"
+      "$$hashKey": "object:207"
     },
     {
       "text": "%md # Check threats and anomalies from history\n\nSome issues caused performance downgrades but not related to scalability. For example, customers neglected to clear historical anomalies from Postgres databases, resulting in insufficient space and model failures. ",
@@ -985,7 +898,7 @@
       "dateStarted": "2024-01-25T18:01:56-0800",
       "dateFinished": "2024-01-25T18:01:56-0800",
       "status": "FINISHED",
-      "$$hashKey": "object:211"
+      "$$hashKey": "object:208"
     },
     {
       "text": "%sh  psql -d caspidadb -c \"select eventtime,endtime, anomalytype,anomalycategory, scoredby, entitytypes from anomalies limit 25;\"\n",
@@ -1028,12 +941,13 @@
       "dateStarted": "2024-01-25T18:05:21-0800",
       "dateFinished": "2024-01-25T18:05:21-0800",
       "status": "FINISHED",
-      "$$hashKey": "object:212"
+      "$$hashKey": "object:209"
     },
     {
-      "text": "%sh  psql -d caspidadb -c \"select count(*) from anomalies;\"\n",
+      "title": "count the number of anomalies",
+      "text": "%sh  psql -d caspidadb -c \"select count(*), anomalytype from anomalies group by anomalytype;\"\n",
       "user": "anonymous",
-      "dateUpdated": "2024-01-26T10:14:35-0800",
+      "dateUpdated": "2024-01-26T15:32:28-0800",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -1052,6 +966,15 @@
       "settings": {
         "params": {},
         "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " count |            anomalytype            \n-------+-----------------------------------\n     5 | LandSpeedViolation\n    30 | MachineGeneratedBeacon\n     1 | MaliciousADActivity\n     4 | MultipleAuthentication\n     1 | MultipleLoginError\n     1 | MultipleSAASOps\n     1 | OutOfProfileADActivity\n     2 | OutOfProfileBrowserInfo\n     4 | OutOfProfileEvent\n     2 | OutOfProfileGEOLocation\n    45 | OutOfProfileLoginError\n     3 | OutOfProfileMachineAccess\n     1 | OutOfProfileNetworkApplication\n     8 | OutOfProfileNetworkZone\n     9 | OutOfProfileProcess\n     2 | OutOfProfileUSBActivity\n     3 | OutOfProfileVPNGEOLocation\n     1 | PowershellDetectionOfflineAnomaly\n     1 | SaaSMultipleError\n     1 | SuspiciousPrivilegeElevation\n     2 | VPNLocationChangepoint\n     1 | WebShellBehavior\n     2 | WindowOfADPathSequenceAnomaly\n(23 rows)\n\n"
+          }
+        ]
       },
       "apps": [],
       "runtimeInfos": {},
@@ -1059,26 +982,16 @@
       "jobName": "paragraph_1706292840158_977329070",
       "id": "paragraph_1706292840158_977329070",
       "dateCreated": "2024-01-26T10:14:00-0800",
+      "dateStarted": "2024-01-26T15:32:28-0800",
+      "dateFinished": "2024-01-26T15:32:28-0800",
       "status": "FINISHED",
-      "focus": true,
-      "$$hashKey": "object:3007",
-      "dateFinished": "2024-01-26T10:14:35-0800",
-      "dateStarted": "2024-01-26T10:14:35-0800",
-      "title": "count the number of anomalies",
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": " count \n-------\n   130\n(1 row)\n\n"
-          }
-        ]
-      }
+      "$$hashKey": "object:210"
     },
     {
-      "text": "%sh  psql -d caspidadb -c \"select count(*) from threats;\"\n",
+      "title": "count the number of threats",
+      "text": "%sh  psql -d caspidadb -c \"select count(*),isactive from threats group by isactive;\"\n",
       "user": "anonymous",
-      "dateUpdated": "2024-01-26T10:12:58-0800",
+      "dateUpdated": "2024-01-26T15:33:41-0800",
       "progress": 0,
       "config": {
         "editorSetting": {
@@ -1103,7 +1016,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": " count \n-------\n     0\n(1 row)\n\n"
+            "data": " count | isactive \n-------+----------\n(0 rows)\n\n"
           }
         ]
       },
@@ -1113,11 +1026,10 @@
       "jobName": "paragraph_1706234818605_732923371",
       "id": "paragraph_1706234818605_732923371",
       "dateCreated": "2024-01-25T18:06:58-0800",
-      "dateStarted": "2024-01-25T18:07:24-0800",
-      "dateFinished": "2024-01-25T18:07:24-0800",
+      "dateStarted": "2024-01-26T15:33:41-0800",
+      "dateFinished": "2024-01-26T15:33:41-0800",
       "status": "FINISHED",
-      "$$hashKey": "object:213",
-      "title": "count the number of threats"
+      "$$hashKey": "object:211"
     },
     {
       "text": "%md # Additional useful queries\n\nShare more useful queries below",
@@ -1161,7 +1073,7 @@
       "dateStarted": "2024-01-26T10:18:56-0800",
       "dateFinished": "2024-01-26T10:18:56-0800",
       "status": "FINISHED",
-      "$$hashKey": "object:214"
+      "$$hashKey": "object:212"
     },
     {
       "text": "%sh psql -d caspidadb -c \"select * from dbinfo\"\n",
@@ -1204,7 +1116,7 @@
       "dateStarted": "2024-01-22T15:59:01-0800",
       "dateFinished": "2024-01-22T15:59:01-0800",
       "status": "FINISHED",
-      "$$hashKey": "object:215"
+      "$$hashKey": "object:213"
     }
   ],
   "name": "UBA_Data_Validation_Model_Monitoring",
