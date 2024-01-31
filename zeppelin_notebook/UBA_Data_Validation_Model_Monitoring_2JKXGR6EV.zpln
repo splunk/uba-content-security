@@ -1,0 +1,1136 @@
+﻿{
+  "paragraphs": [
+    {
+      "title": "To Get Started",
+      "text": "%md # UBA Data Validation and Model Monitoring\n\nThe notebook showcase some useful examples for data validation and model monitoring to help resolve system scaliblity issues at the early stage. \n\nMore examples can be provided based on feedback.\nNote: to secure the customer datasets, the notebook was run on single-node UBA testing VM using synthetic datasets. The installation has been also tested in a multi-node deployment environment.",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T14:49:32-0800",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>UBA Data Validation and Model Monitoring</h1>\n<p>The notebook showcase some useful examples for data validation and model monitoring to help resolve system scaliblity issues at the early stage.</p>\n<p>More examples can be provided based on feedback.<br />\nNote: to secure the customer datasets, the notebook was run on single-node UBA testing VM using synthetic datasets. The installation has been also tested in a multi-node deployment environment.</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705099547764_95793529",
+      "id": "paragraph_1705099547764_95793529",
+      "dateCreated": "2024-01-12T14:45:47-0800",
+      "dateStarted": "2024-01-26T14:49:32-0800",
+      "dateFinished": "2024-01-26T14:49:32-0800",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:186"
+    },
+    {
+      "text": "%md ## Validate the scale from data sources\nThrough the sample notebook, you may track the event processing count, the Maximum, Minimum, and Average EPS values. Currently UBA secures the scale of EPS value under 160K.",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T11:16:08-0800",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Validate the scale from data sources</h2>\n<p>Through the sample notebook, you may track the event processing count, the Maximum, Minimum, and Average EPS values. Currently UBA secures the scale of EPS value under 160K.</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705099597767_1728533725",
+      "id": "paragraph_1705099597767_1728533725",
+      "dateCreated": "2024-01-12T14:46:37-0800",
+      "dateStarted": "2024-01-26T11:16:08-0800",
+      "dateFinished": "2024-01-26T11:16:08-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:187"
+    },
+    {
+      "title": "check the real-time EPS values from data sources",
+      "text": "\n%sh /opt/caspida/bin/status/eps_ds\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T14:52:09-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "lineNumbers": false,
+        "title": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nInput EPS=0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706136011469_62020817",
+      "id": "paragraph_1706136011469_62020817",
+      "dateCreated": "2024-01-24T14:40:11-0800",
+      "dateStarted": "2024-01-25T17:30:21-0800",
+      "dateFinished": "2024-01-25T17:30:21-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:188"
+    },
+    {
+      "title": "check the real-time EPS values from ETL",
+      "text": "%sh /opt/caspida/bin/status/eps_etl\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T14:52:13-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706136504564_559646685",
+      "id": "paragraph_1706136504564_559646685",
+      "dateCreated": "2024-01-24T14:48:24-0800",
+      "dateStarted": "2024-01-25T17:22:39-0800",
+      "dateFinished": "2024-01-25T17:22:40-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:189"
+    },
+    {
+      "title": "check the real-time EPS values from Identity Resolution",
+      "text": "%sh /opt/caspida/bin/status/eps_ir\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T14:52:16-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "2\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706136522356_1465984256",
+      "id": "paragraph_1706136522356_1465984256",
+      "dateCreated": "2024-01-24T14:48:42-0800",
+      "dateStarted": "2024-01-25T17:22:42-0800",
+      "dateFinished": "2024-01-25T17:22:43-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:190"
+    },
+    {
+      "title": "retrieve EPS statistics from all data sources",
+      "text": "%sh psql -d caspidadb -c \"SELECT DISTINCT ON (d.name) d.name, d.type, d.status, d.error, d.format, date_trunc('Seconds',cstats.lastprocessed) as lastprocessed, cstats.epsjson::json->>'EPS' as recent_eps, cstats.epsjson::json->>'Avg EPS' as average_eps, cstats.epsjson::json->>'Max EPS' as max_eps, dstats.countevents, dstats.countfailedevents, dstats.countskippedevents, (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents) as success_perc, \\\n                case \\\n                  when d.status != 'Processing' then '' \\\n                  when (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents)=0 then '   <== utter failure; events not processed; review datasource SPL' \\\n                  when (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents)=100 then '(complete success)' \\\n                  when (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents)<=40 then '   <== significant failed/skipped events; review datasource SPL' \\\n                  when (100-((dstats.countskippedevents + dstats.countfailedevents)*100)/dstats.countevents)<=70 then '   <= check failed/skipped events; review datasource SPL' \\\n                  else '' end as observation \\\n                FROM connectorstats as cstats \\\n                INNER JOIN datasourcestats as dstats on cstats.id = dstats.id \\\n                INNER JOIN datasources as d on cstats.id = d.id WHERE cstats.lastprocessed IS NOT NULL AND dstats.countevents!=0 ORDER BY name, lastmodified DESC; \\\n\t\t\"",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T14:55:20-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "                   name                    | type |  status   | error |          format           |    lastprocessed    | recent_eps | average_eps | max_eps | countevents | countfailedevents | countskippedevents | success_perc | observation \n-------------------------------------------+------+-----------+-------+---------------------------+---------------------+------------+-------------+---------+-------------+-------------------+--------------------+--------------+-------------\n 0_resolution-demoandbackground.infoblox   | File | Completed |       | INFOBLOX                  | 2024-01-12 15:45:59 | 1040       | 1040        | 1040    |        5200 |                 0 |                  0 |          100 | \n 20noderesolve.infoblox.gz                 | File | Completed |       | INFOBLOX                  | 2024-01-12 15:51:13 | 6925       | 5209        | 7666    |      744603 |                 0 |                  0 |          100 | \n demoandbackground.ad_multiline.gz         | File | Completed |       | AD/MULTILINE              | 2024-01-12 15:51:24 | 99         | 99          | 99      |        1492 |                 0 |                984 |           35 | \n demoandbackground.ad_snare_flat.gz        | File | Completed |       | AD/SNARE_FLAT             | 2024-01-12 15:51:03 | 701        | 1600        | 2500    |      160523 |                 0 |                  0 |          100 | \n demoandbackground.box_events.gz           | File | Completed |       | BOX/EVENTS                | 2024-01-12 15:51:16 | 8          | 8           | 8       |         131 |                 0 |                  0 |          100 | \n demoandbackground.box.gz                  | File | Completed |       | BOX                       | 2024-01-12 15:51:38 | 8          | 8           | 8       |          84 |                 0 |                  0 |          100 | \n demoandbackground.brivo.gz                | File | Completed |       | DYNAMIC/BRIVO_BADGEACCESS | 2024-01-12 15:51:06 | 66         | 66          | 66      |         667 |                 0 |                  0 |          100 | \n demoandbackground.cef.gz                  | File | Completed |       | CEF                       | 2024-01-12 15:51:05 | 7          | 7           | 7       |          73 |                 0 |                  0 |          100 | \n demoandbackground.ciscosa.gz              | File | Completed |       | CISCOSA                   | 2024-01-12 15:51:28 | 320        | 320         | 320     |        4810 |                 0 |                  0 |          100 | \n demoandbackground.o365_sharepoint.gz      | File | Completed |       | O365/SHAREPOINT           | 2024-01-12 15:51:00 | 12         | 12          | 12      |          60 |                 0 |                  0 |          100 | \n demoandbackground.pan.gz                  | File | Completed |       | PAN                       | 2024-01-12 15:51:04 | 2963       | 4047        | 8083    |      777602 |                 0 |             102031 |           87 | \n demoandbackground.splunk_cs.gz            | File | Completed |       | DYNAMIC/ESRULES           | 2024-01-12 15:51:07 | 1          | 1           | 1       |          10 |                 0 |                  0 |          100 | \n demoandbackground.symantecdlp_endpoint.gz | File | Completed |       | SYMANTECDLP/ENDPOINT      | 2024-01-12 15:51:01 | 24         | 24          | 24      |         124 |                 0 |                  0 |          100 | \n demoandbackground.webgateway.gz           | File | Completed |       | WEBGATEWAY                | 2024-01-12 15:51:34 | 1612       | 1612        | 1612    |       40305 |                 0 |                  0 |          100 | \n demoandbackground.weblog.gz               | File | Completed |       | WEBLOG                    | 2024-01-12 15:51:09 | 3723       | 2824        | 3723    |      297278 |                 0 |                  0 |          100 | \n(15 rows)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705800968627_396253184",
+      "id": "paragraph_1705800968627_396253184",
+      "dateCreated": "2024-01-20T17:36:08-0800",
+      "dateStarted": "2024-01-26T09:50:29-0800",
+      "dateFinished": "2024-01-26T09:50:30-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:191"
+    },
+    {
+      "title": "retrieve ID from specific data source ",
+      "text": "%sh psql -d caspidadb -c \"select id,name,type,format,status,connectortype from datasources where name='0_resolution-demoandbackground.infoblox';\"\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-25T17:42:43-0800",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "editorHide": false,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "         id          |                  name                   | type |  format  |  status   | connectortype \n---------------------+-----------------------------------------+------+----------+-----------+---------------\n 6015881326631454175 | 0_resolution-demoandbackground.infoblox | File | INFOBLOX | Completed | Pull\n(1 row)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705099783062_658574451",
+      "id": "paragraph_1705099783062_658574451",
+      "dateCreated": "2024-01-12T14:49:43-0800",
+      "dateStarted": "2024-01-25T17:42:06-0800",
+      "dateFinished": "2024-01-25T17:42:06-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:192"
+    },
+    {
+      "title": "retrieve EPS statistics from specific data source",
+      "text": "%sh psql -d caspidadb -c \"select id,instanceid,lastmodified,state,numprocessed,numfailed,eps,epsjson from connectorstats where id='6015881326631454175'\"\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-25T17:44:44-0800",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "editorHide": false,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "         id          |               instanceid               |      lastmodified       |   state   | numprocessed | numfailed | eps  |                              epsjson                              \n---------------------+----------------------------------------+-------------------------+-----------+--------------+-----------+------+-------------------------------------------------------------------\n 6015881326631454175 | oel-uba-solo17050358403191705035840515 | 2024-01-12 15:46:03.801 | Completed |         5200 |         0 | 1040 | {\"EPS\":\"1040\",\"Min EPS\":\"1040\",\"Max EPS\":\"1040\",\"Avg EPS\":\"1040\"}\n(1 row)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705099766690_513380793",
+      "id": "paragraph_1705099766690_513380793",
+      "dateCreated": "2024-01-12T14:49:26-0800",
+      "dateStarted": "2024-01-25T17:43:17-0800",
+      "dateFinished": "2024-01-25T17:43:17-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:193"
+    },
+    {
+      "title": "check statistics of onboarding data",
+      "text": "%sh impala-shell -d caspida -q 'describe datasourcevalidations;'",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-25T20:05:54-0800",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "editorHide": false,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Starting Impala Shell without Kerberos authentication\nOpened TCP connection to 6251ec511cee:21000\nConnected to 6251ec511cee:21000\nServer version: impalad version 3.2.0-cdh6.3.2 RELEASE (build 1bb9836227301b839a32c6bc230e35439d5984ac)\nQuery: use `caspida`\nQuery: use `caspida`\nQuery: describe datasourcevalidations\n+----------------------------------+--------+---------+\n| name                             | type   | comment |\n+----------------------------------+--------+---------+\n| eventtime                        | string |         |\n| day                              | string |         |\n| dayofweek                        | string |         |\n| week                             | string |         |\n| weekend                          | string |         |\n| month                            | string |         |\n| holiday                          | string |         |\n| datasourceid                     | string |         |\n| numevents                        | bigint |         |\n| emptyviewcount                   | bigint |         |\n| firsteventtimestamp              | bigint |         |\n| lasteventtimestamp               | bigint |         |\n| adviewcount              F        | bigint |         |\n| applicationviewcount             | bigint |         |\n| authenticationviewcount          | bigint |         |\n| clouddataviewcount               | bigint |         |\n| clouddataadminviewcount          | bigint |         |\n| clouddatacollaborationviewcount  | bigint |         |\n| clouddatagroupoperationviewcount | bigint |         |\n| dataviewcount                    | bigint |         |\n| dhcpviewcount                    | bigint |         |\n| dlpviewcount                     | bigint |         |\n| dnsviewcount                     | bigint |         |\n| emailviewcount                   | bigint |         |\n| endpointviewcount                | bigint |         |\n| entityassociationviewcount       | bigint |         |\n| externalalarmviewcount           | bigint |         |\n| firewallviewcount                | bigint |         |\n| httpviewcount                    | bigint |         |\n| networkviewcount                 | bigint |         |\n| statisticalviewcount             | bigint |         |\n| genericviewcount                 | bigint |         |\n| printerviewcount                 | bigint |         |\n| badgeaccessviewcount             | bigint |         |\n| databaseviewcount                | bigint |         |\n| tspartition                      | string |         |\n+----------------------------------+--------+---------+\netched 36 row(s) in 0.03s\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705099965799_1351880307",
+      "id": "paragraph_1705099965799_1351880307",
+      "dateCreated": "2024-01-12T14:52:45-0800",
+      "dateStarted": "2024-01-25T20:05:54-0800",
+      "dateFinished": "2024-01-25T20:05:55-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:194"
+    },
+    {
+      "text": "%md ## Validate the scale from user and entity profiles\n\nThe number of users, entities (e.g. devices, applications) and its associated profiles may determine the scale for some models. Validate user and entity profiles are preliminary for reliable detections. ",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-25T17:50:20-0800",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Validate the scale from user and entity profiles</h2>\n<p>The number of users, entities (e.g. devices, applications) and its associated profiles may determine the scale for some models. Validate user and entity profiles are preliminary for reliable detections.</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705963220799_1023333138",
+      "id": "paragraph_1705963220799_1023333138",
+      "dateCreated": "2024-01-22T14:40:20-0800",
+      "dateStarted": "2024-01-25T17:50:20-0800",
+      "dateFinished": "2024-01-25T17:50:20-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:195"
+    },
+    {
+      "title": "count the number of users from HRData (LDAP)",
+      "text": "%sh psql -d caspidadb -c 'select count(*) from hrdatausers';\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T15:31:27-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "editorHide": false,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " count \n-------\n  1136\n(1 row)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706233941256_730606348",
+      "id": "paragraph_1706233941256_730606348",
+      "dateCreated": "2024-01-25T17:52:21-0800",
+      "dateStarted": "2024-01-26T15:06:31-0800",
+      "dateFinished": "2024-01-26T15:06:31-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:196"
+    },
+    {
+      "title": "count the number of actual users with activities from data sources",
+      "text": "%sh psql -d caspidadb -c 'select count(*) from users';\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T15:31:31-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " count \n-------\n   130\n(1 row)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706310087172_1193229437",
+      "id": "paragraph_1706310087172_1193229437",
+      "dateCreated": "2024-01-26T15:01:27-0800",
+      "dateStarted": "2024-01-26T15:01:39-0800",
+      "dateFinished": "2024-01-26T15:01:39-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:197"
+    },
+    {
+      "title": "check the number of OU group for the enterprise",
+      "text": "%sh  psql -d caspidadb -c \"select count(*), ou from hrdatausers group by ou;\"\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T15:30:32-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " count |       ou       \n-------+----------------\n    62 | Helpdesk\n   445 | Engineering\n    56 | IT\n     1 | Executive\n    60 | Marketing\n    30 | Administrators\n     6 | \n   109 | Dev Ops\n    18 | Finance\n    77 | HR\n   217 | Sales\n    55 | Support\n(12 rows)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706233974059_1884565458",
+      "id": "paragraph_1706233974059_1884565458",
+      "dateCreated": "2024-01-25T17:52:54-0800",
+      "dateStarted": "2024-01-26T15:30:32-0800",
+      "dateFinished": "2024-01-26T15:30:33-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:198"
+    },
+    {
+      "title": "check the categories of accounts",
+      "text": "\n%sh  psql -d caspidadb -c \"select count(*), hraccounttype from hrdataaccounts group by hraccounttype;\"\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T15:29:44-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " count | hraccounttype \n-------+---------------\n  1101 | Normal\n     6 | Service\n    29 | Admin\n(3 rows)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706234041924_2093462282",
+      "id": "paragraph_1706234041924_2093462282",
+      "dateCreated": "2024-01-25T17:54:01-0800",
+      "dateStarted": "2024-01-26T15:29:44-0800",
+      "dateFinished": "2024-01-26T15:29:44-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:199"
+    },
+    {
+      "text": "%sh psql -d caspidadb -c \"select count(*), type from systems group by type;\"",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T15:28:38-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706311582153_839207530",
+      "id": "paragraph_1706311582153_839207530",
+      "dateCreated": "2024-01-26T15:26:22-0800",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:2610",
+      "dateFinished": "2024-01-26T15:28:31-0800",
+      "dateStarted": "2024-01-26T15:28:30-0800",
+      "title": "count the number of registered devices by type",
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " count  |   type    \n--------+-----------\n     17 | AD\n 850127 | Client\n      5 | Firewall\n      5 | Printer\n 867342 | Unknown\n      4 | USB\n      1 | VPNServer\n(7 rows)\n\n"
+          }
+        ]
+      }
+    },
+    {
+      "title": "count the unresolved devices",
+      "text": "%sh  psql -d caspidadb -c \"select count(*) from usystems where state = 'Unresolved';\" \n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T15:08:19-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " count  \n--------\n 862571\n(1 row)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706234406331_1876970625",
+      "id": "paragraph_1706234406331_1876970625",
+      "dateCreated": "2024-01-25T18:00:06-0800",
+      "dateStarted": "2024-01-26T15:08:19-0800",
+      "dateFinished": "2024-01-26T15:08:19-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:203"
+    },
+    {
+      "text": "%md ## Identify scalability issues from batch models\nYou may also check in real-time for any recurrent model failures, identify models with the longest durations. Monitor the long-running models if there are noticeable changes in the execution times, and engage with UBA Customer support if they cause system performance to be downgraded. ",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-25T17:56:48-0800",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Identify scalability issues from batch models</h2>\n<p>You may also check in real-time for any recurrent model failures, identify models with the longest durations. Monitor the long-running models if there are noticeable changes in the execution times, and engage with UBA Customer support if they cause system performance to be downgraded.</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705100001921_514326215",
+      "id": "paragraph_1705100001921_514326215",
+      "dateCreated": "2024-01-12T14:53:21-0800",
+      "dateStarted": "2024-01-25T17:56:48-0800",
+      "dateFinished": "2024-01-25T17:56:48-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:205"
+    },
+    {
+      "title": "check long-duration models ",
+      "text": "%sh impala-shell -d caspida -q 'select eventtime,modelname,durationinmilliseconds,successfulexecutions,failedexecutions from offlinemodelstats where failedexecutions=0 order by durationinmilliseconds desc limit 10;'\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T10:07:34-0800",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "editorHide": false,
+        "results": {},
+        "enabled": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Starting Impala Shell without Kerberos authentication\nOpened TCP connection to 6251ec511cee:21000\nConnected to 6251ec511cee:21000\nServer version: impalad version 3.2.0-cdh6.3.2 RELEASE (build 1bb9836227301b839a32c6bc230e35439d5984ac)\nQuery: use `caspida`\nQuery: use `caspida`\nQuery: select eventtime,modelname,durationinmilliseconds,successfulexecutions,failedexecutions from offlinemodelstats where failedexecutions=0 order by durationinmilliseconds desc limit 10\nQuery submitted at: 2024-01-26 18:07:32 (Coordinator: http://6251ec511cee:25000)\nQuery progress can be monitored at: http://6251ec511cee:25000/query_plan?query_id=77444a50f226ebc6:008fd0f300000000\n+---------------------+----F-------------------------+---------------etched 10 row(s) in 0.32s\n---------+----------------------+------------------+\n| eventtime           | modelname                   | durationinmilliseconds | successfulexecutions | failedexecutions |\n+---------------------+-----------------------------+------------------------+----------------------+------------------+\n| 2024-01-25 11:32:29 | MalwareThreatDetectionModel | 2060217                | 11                   | 0                |\n| 2024-01-23 11:36:43 | MalwareThreatDetectionModel | 2013183                | 10                   | 0                |\n| 2024-01-12 16:23:40 | MalwareThreatDetectionModel | 1972913                | 2                    | 0                |\n| 2024-01-16 11:18:22 | MalwareThreatDetectionModel | 1967842                | 6                    | 0                |\n| 2024-01-21 11:25:45 | MalwareThreatDetectionModel | 1964624                | 8                    | 0                |\n| 2024-01-20 11:23:41 | MalwareThreatDetectionModel | 1932858                | 7                    | 0                |\n| 2024-01-15 11:18:53 | MalwareThreatDetectionModel | 1820922                | 5                    | 0                |\n| 2024-01-13 11:20:21 | MalwareThreatDetectionModel | 1819535                | 3                    | 0                |\n| 2024-01-14 11:15:07 | MalwareThreatDetectionModel | 1795104                | 4                    | 0                |\n| 2024-01-22 11:21:23 | MalwareThreatDetectionModel | 1769713                | 9                    | 0                |\n+---------------------+-----------------------------+------------------------+----------------------+------------------+\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705100066946_1091755159",
+      "id": "paragraph_1705100066946_1091755159",
+      "dateCreated": "2024-01-12T14:54:26-0800",
+      "dateStarted": "2024-01-26T10:07:32-0800",
+      "dateFinished": "2024-01-26T10:07:33-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:206"
+    },
+    {
+      "title": "check the most recent execution time for models",
+      "text": "%sh impala-shell -d caspida --quiet -q \"select modelname, eventtime from (select modelname,eventtime,row_number() over (partition by modelname order by eventtime desc) as index from offlinemodelstats where failurereason = 'n/a') t where index = 1 order by 2 desc;\"\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T10:12:11-0800",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorHide": false,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---------------------------------------------+---------------------+\n| modelname                                   | eventtime           |\n+---------------------------------------------+---------------------+\n| ThreatComputationModel                      | 2024-01-26 16:04:51 |\n| DeviceAnomalyRankingModel                   | 2024-01-26 16:03:03 |\n| UserAnomalyRankingModel                     | 2024-01-26 16:01:11 |\n| ExcessiveFileSizeChangeModel                | 2024-01-26 11:43:48 |\n| MalwareThreatDetectionModel                 | 2024-01-26 11:14:55 |\n| LateralMovementDetectionModel               | 2024-01-26 11:09:20 |\n| ExfiltrationMetricsModel                    | 2024-01-26 11:08:26 |\n| InsiderRankingModel                         | 2024-01-26 11:07:22 |\n| ExternalUserRankingModel                    | 2024-01-26 11:06:21 |\n| BoxPatternModel                             | 2024-01-26 11:05:09 |\n| BoxNewAccess                                | 2024-01-26 11:04:23 |\n| SuspiciousEmailDetectionModel               | 2024-01-26 11:03:38 |\n| ExternalAlarmAnalysisModel                  | 2024-01-26 11:02:37 |\n| UnusualVPNDuration                          | 2024-01-26 11:01:46 |\n| BlacklistEntityModel                        | 2024-01-26 11:00:55 |\n| RareEventsModel_WindowsAuthentications      | 2024-01-26 10:59:08 |\n| FrequentPatternModelOfExternalAlarms        | 2024-01-26 10:58:18 |\n| RareEventsModel_WindowsLogins               | 2024-01-26 10:56:47 |\n| ScanModel                                   | 2024-01-26 10:55:59 |\n| PrivilegeElevationDetectionModel            | 2024-01-26 10:54:56 |\n| UserExpandingAccessModel                    | 2024-01-26 10:53:45 |\n| RareEventsModel_FileAccess                  | 2024-01-26 10:52:40 |\n| RareEventsModel_UnusualDBActivity           | 2024-01-26 10:51:54 |\n| RareEventsModel_RareEmailDomain             | 2024-01-26 10:51:07 |\n| RareEventsModel_UnusualProcessAccess        | 2024-01-26 10:50:08 |\n| RareEventsModel_FWScopePortApp              | 2024-01-26 10:48:49 |\n| RareEventsModel_ExternalAlarm               | 2024-01-26 10:46:41 |\n| RareEventsModel_VPNRareGeo                  | 2024-01-26 10:45:33 |\n| RareEventsModel_NetworkCommunicationRareGeo | 2024-01-26 10:44:27 |\n| RareEventsModel_BadgeReaderAccess           | 2024-01-26 10:43:43 |\n| RareEventsModel_WindowsLogs                 | 2024-01-26 10:42:33 |\n| RareEventsModel_FWPortApplication           | 2024-01-26 10:41:14 |\n| RareEventsModel_HTTPUserAgentString         | 2024-01-26 10:40:07 |\n| Outliers_VPNAuthSourceChangepoint           | 2024-01-26 10:38:50 |\n| Timeseries_FileEvents                       | 2024-01-26 10:37:47 |\n| Timeseries_USBFileWritesperUser             | 2024-01-26 10:36:47 |\n| Timeseries_USBBytesOutperUser               | 2024-01-26 10:35:45 |\n| Timeseries_PrinterBytesOutperUser           | 2024-01-26 10:34:55 |\n| Timeseries_DBAdminActionsPerUser            | 2024-01-26 10:34:04 |\n| Timeseries_DBHelpActionsPerUser             | 2024-01-26 10:33:16 |\n| Timeseries_DBGrantsPerUser                  | 2024-01-26 10:32:26 |\n| Timeseries_DBRecordsModifiedPerUser         | 2024-01-26 10:31:38 |\n| Timeseries_DBRecordsDeletedPerUser          | 2024-01-26 10:30:49 |\n| Timeseries_DBRecordsReadPerUser             | 2024-01-26 10:29:57 |\n| Timeseries_BoxDownloads                     | 2024-01-26 10:28:10 |\n| Timeseries_BadgeAccesses                    | 2024-01-26 10:27:21 |\n| Timeseries_DownloadsFromInternalServers     | 2024-01-26 10:26:16 |\n| Timeseries_MultipleExternalAlarms           | 2024-01-26 10:25:14 |\n| Timeseries_BoxEvents                        | 2024-01-26 10:24:01 |\n| Timeseries_BoxLoginFailures                 | 2024-01-26 10:22:56 |\n| Timeseries_BoxLogins                        | 2024-01-26 10:21:53 |\n| Timeseries_AuthenticationCount              | 2024-01-26 10:20:48 |\n| Timeseries_LoginCountFailures               | 2024-01-26 10:19:33 |\n| Timeseries_VPNLoginCount                    | 2024-01-26 10:18:27 |\n| Timeseries_LoginCount                       | 2024-01-26 10:17:24 |\n| Timeseries_VPNTransferPerUser               | 2024-01-26 10:16:26 |\n| Timeseries_BytesOutTransferPerDevice        | 2024-01-26 10:15:36 |\n| Timeseries_BytesOutTransferPerUser          | 2024-01-26 10:14:46 |\n| Timeseries_BytesOutPerDevice                | 2024-01-26 10:13:44 |\n| Timeseries_BytesOutPerUser                  | 2024-01-26 10:12:40 |\n| UserExfiltrationModel                       | 2024-01-26 10:11:53 |\n| DeviceExfiltrationModel                     | 2024-01-26 10:11:05 |\n| FilerModel                                  | 2024-01-26 10:10:02 |\n| HRPeerGrouping                              | 2024-01-26 10:07:40 |\n| DeviceGroupingModel                         | 2024-01-26 10:06:44 |\n| PeerGrouping                                | 2024-01-26 10:05:20 |\n| SuspiciousAccountLockoutModel               | 2024-01-26 10:04:30 |\n| UnusualAccessTimeModel                      | 2024-01-26 10:03:43 |\n| PowershellDetectionOfflineModel             | 2024-01-26 10:02:50 |\n| AdPstCorrelationModel                       | 2024-01-26 10:01:52 |\n| BeaconAssessmentModel                       | 2024-01-26 10:00:51 |\n| O365FileAccessPatternModel                  | 2024-01-26 09:50:41 |\n| Abnormal_VPN_Session_Model                  | 2024-01-26 09:32:16 |\n| Changepoint_Model_of_VPN_Location           | 2024-01-26 09:30:45 |\n| DeterministicProfilingModel                 | 2024-01-26 08:08:08 |\n| ExternalDestinationPopularity               | 2024-01-26 08:01:14 |\n| ShortTermLearningProfilingModel             | 2024-01-25 08:09:09 |\n| LongTermLearningProfilingModel              | 2024-01-20 08:10:06 |\n| MidTermLearningProfilingModel               | 2024-01-12 16:15:37 |\n+---------------------------------------------+---------------------+\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705109407558_1643093167",
+      "id": "paragraph_1705109407558_1643093167",
+      "dateCreated": "2024-01-12T17:30:07-0800",
+      "dateStarted": "2024-01-26T10:12:09-0800",
+      "dateFinished": "2024-01-26T10:12:10-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:207"
+    },
+    {
+      "text": "%md # Check threats and anomalies from history\n\nSome issues caused performance downgrades but not related to scalability. For example, customers neglected to clear historical anomalies from Postgres databases, resulting in insufficient space and model failures. ",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-25T18:01:56-0800",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Check threats and anomalies from history</h1>\n<p>Some issues caused performance downgrades but not related to scalability. For example, customers neglected to clear historical anomalies from Postgres databases, resulting in insufficient space and model failures.</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706234485845_2008692928",
+      "id": "paragraph_1706234485845_2008692928",
+      "dateCreated": "2024-01-25T18:01:25-0800",
+      "dateStarted": "2024-01-25T18:01:56-0800",
+      "dateFinished": "2024-01-25T18:01:56-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:208"
+    },
+    {
+      "text": "%sh  psql -d caspidadb -c \"select eventtime,endtime, anomalytype,anomalycategory, scoredby, entitytypes from anomalies limit 25;\"\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-25T18:05:21-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "      eventtime      |       endtime       |            anomalytype            |                              anomalycategory                               |      scoredby       |        entitytypes        \n---------------------+---------------------+-----------------------------------+----------------------------------------------------------------------------+---------------------+---------------------------\n 2023-09-11 00:00:00 | 2023-09-12 00:00:00 | OutOfProfileUSBActivity           | {Exfiltration,Local,EndPoint,Behavior,RemovableStorage}                    | AnomalyScoringRules | {User,Device}\n 2023-09-10 00:00:00 | 2023-09-11 00:00:00 | OutOfProfileUSBActivity           | {Exfiltration,Local,EndPoint,Behavior,RemovableStorage}                    | AnomalyScoringRules | {User,Device}\n 2023-09-09 16:45:37 | 2023-09-09 16:55:37 | LandSpeedViolation                | {Incoming,Signature,CredentialAccess,RareLocation,Allowed}                 | AnomalyScoringRules | {User,Device}\n 2023-09-09 16:52:49 | 2023-09-09 17:02:49 | LandSpeedViolation                | {Incoming,Signature,CredentialAccess,RareLocation,Allowed}                 | AnomalyScoringRules | {User,Device}\n 2023-09-10 16:52:49 | 2023-09-10 17:02:49 | LandSpeedViolation                | {Incoming,Signature,CredentialAccess,RareLocation,Allowed}                 | AnomalyScoringRules | {User,Device}\n 2023-09-03 17:00:00 | 2023-09-03 17:10:00 | LandSpeedViolation                | {Incoming,Signature,CredentialAccess,RareLocation,Allowed}                 | AnomalyScoringRules | {User,Device}\n 2023-09-10 16:45:37 | 2023-09-10 16:55:37 | LandSpeedViolation                | {Incoming,Signature,CredentialAccess,RareLocation,Allowed}                 | AnomalyScoringRules | {User,Device}\n 2023-09-11 06:56:21 | 2023-09-11 07:06:21 | MaliciousADActivity               | {Signature,Internal,AD,CredentialAccess,PrivilegeEscalation,Allowed}       | AnomalyScoringRules | {User,Device}\n 2023-09-11 00:58:22 | 2023-09-11 01:08:22 | WebShellBehavior                  | {Execution,LossOfControl,Firewall,Signature,Incoming,Allowed}              | AnomalyScoringRules | {Device,Url}\n 2023-08-29 06:46:52 | 2023-08-29 06:56:52 | MachineGeneratedBeacon            | {Outgoing,Infection,CommandAndControl,Firewall,Behavior}                   | AnomalyScoringRules | {User,Device,Application}\n 2023-09-02 08:03:00 | 2023-09-02 08:13:00 | MachineGeneratedBeacon            | {Outgoing,Infection,CommandAndControl,Firewall,Behavior}                   | AnomalyScoringRules | {User,Device,Url}\n 2023-09-06 00:00:00 | 2023-09-07 00:00:00 | OutOfProfileLoginError            | {LateralMovement,Internal,AD,Behavior,RareDevice,Blocked}                  | AnomalyScoringRules | {User,Device}\n 2023-08-31 00:00:00 | 2023-09-01 00:00:00 | OutOfProfileLoginError            | {LateralMovement,Internal,AD,Behavior,RareDevice,Blocked}                  | AnomalyScoringRules | {User,Device}\n 2023-08-30 00:00:00 | 2023-08-31 00:00:00 | OutOfProfileLoginError            | {LateralMovement,Internal,AD,Behavior,RareDevice,Blocked}                  | AnomalyScoringRules | {User,Device}\n 2023-09-07 00:00:00 | 2023-09-08 00:00:00 | OutOfProfileLoginError            | {LateralMovement,Internal,AD,Behavior,RareDevice,Blocked}                  | AnomalyScoringRules | {User,Device}\n 2023-09-07 00:00:00 | 2023-09-08 00:00:00 | OutOfProfileLoginError            | {LateralMovement,Internal,AD,Behavior,RareDevice,Blocked}                  | AnomalyScoringRules | {User,Device}\n 2023-09-08 00:00:00 | 2023-09-09 00:00:00 | OutOfProfileLoginError            | {LateralMovement,Internal,AD,Behavior,RareDevice,Blocked}                  | AnomalyScoringRules | {User,Device}\n 2023-09-10 00:00:00 | 2023-09-11 00:00:00 | OutOfProfileLoginError            | {LateralMovement,Internal,AD,Behavior,RareDevice,Blocked}                  | AnomalyScoringRules | {User,Device}\n 2023-09-09 00:00:00 | 2023-09-10 00:00:00 | PowershellDetectionOfflineAnomaly | {Local,Execution,EndPoint,Signature}                                       | AnomalyScoringRules | {Device}\n 2023-09-06 00:00:00 | 2023-09-07 00:00:00 | MultipleLoginError                | {Internal,CredentialAccess,AD,Behavior,LateralMovement,Blocked,BruteForce} | AnomalyScoringRules | {User}\n 2023-09-06 00:00:00 | 2023-09-07 00:00:00 | SaaSMultipleError                 | {Blocked,Internal,Behavior,CloudData,BruteForce}                           | AnomalyScoringRules | {User}\n 2023-09-08 00:00:00 | 2023-09-09 00:00:00 | MultipleSAASOps                   | {Network,CloudData,Behavior,Discovery}                                     | AnomalyScoringRules | {User}\n 2023-09-10 00:00:00 | 2023-09-11 00:00:00 | OutOfProfileBrowserInfo           | {Outgoing,Behavior,Firewall,RareApplication}                               | AnomalyScoringRules | {User,Device,Url}\n 2023-09-02 09:32:59 | 2023-09-02 09:42:59 | MachineGeneratedBeacon            | {Outgoing,Infection,CommandAndControl,Firewall,Behavior}                   | AnomalyScoringRules | {User,Device,Application}\n 2023-09-01 10:08:09 | 2023-09-01 10:18:09 | MachineGeneratedBeacon            | {Outgoing,Infection,CommandAndControl,Firewall,Behavior}                   | AnomalyScoringRules | {User,Device,Application}\n(25 rows)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705964159720_1734045856",
+      "id": "paragraph_1705964159720_1734045856",
+      "dateCreated": "2024-01-22T14:55:59-0800",
+      "dateStarted": "2024-01-25T18:05:21-0800",
+      "dateFinished": "2024-01-25T18:05:21-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:209"
+    },
+    {
+      "title": "count the number of anomalies",
+      "text": "%sh  psql -d caspidadb -c \"select count(*), anomalytype from anomalies group by anomalytype;\"\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T15:32:28-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " count |            anomalytype            \n-------+-----------------------------------\n     5 | LandSpeedViolation\n    30 | MachineGeneratedBeacon\n     1 | MaliciousADActivity\n     4 | MultipleAuthentication\n     1 | MultipleLoginError\n     1 | MultipleSAASOps\n     1 | OutOfProfileADActivity\n     2 | OutOfProfileBrowserInfo\n     4 | OutOfProfileEvent\n     2 | OutOfProfileGEOLocation\n    45 | OutOfProfileLoginError\n     3 | OutOfProfileMachineAccess\n     1 | OutOfProfileNetworkApplication\n     8 | OutOfProfileNetworkZone\n     9 | OutOfProfileProcess\n     2 | OutOfProfileUSBActivity\n     3 | OutOfProfileVPNGEOLocation\n     1 | PowershellDetectionOfflineAnomaly\n     1 | SaaSMultipleError\n     1 | SuspiciousPrivilegeElevation\n     2 | VPNLocationChangepoint\n     1 | WebShellBehavior\n     2 | WindowOfADPathSequenceAnomaly\n(23 rows)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706292840158_977329070",
+      "id": "paragraph_1706292840158_977329070",
+      "dateCreated": "2024-01-26T10:14:00-0800",
+      "dateStarted": "2024-01-26T15:32:28-0800",
+      "dateFinished": "2024-01-26T15:32:28-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:210"
+    },
+    {
+      "title": "count the number of threats",
+      "text": "%sh  psql -d caspidadb -c \"select count(*),isactive from threats group by isactive;\"\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T15:33:41-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "title": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " count | isactive \n-------+----------\n(0 rows)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706234818605_732923371",
+      "id": "paragraph_1706234818605_732923371",
+      "dateCreated": "2024-01-25T18:06:58-0800",
+      "dateStarted": "2024-01-26T15:33:41-0800",
+      "dateFinished": "2024-01-26T15:33:41-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:211"
+    },
+    {
+      "text": "%md # Additional useful queries\n\nShare more useful queries below",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-26T10:18:56-0800",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h1>Additional useful queries</h1>\n<p>Share more useful queries below</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1706234736741_1746341494",
+      "id": "paragraph_1706234736741_1746341494",
+      "dateCreated": "2024-01-25T18:05:36-0800",
+      "dateStarted": "2024-01-26T10:18:56-0800",
+      "dateFinished": "2024-01-26T10:18:56-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:212"
+    },
+    {
+      "text": "%sh psql -d caspidadb -c \"select * from dbinfo\"\n",
+      "user": "anonymous",
+      "dateUpdated": "2024-01-25T17:39:22-0800",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": " currentversion | previousversion |        creationtime        \n----------------+-----------------+----------------------------\n 5.3.0          | 5.2.0           | 2024-01-12 05:00:07.419418\n(1 row)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1705964229184_1393744475",
+      "id": "paragraph_1705964229184_1393744475",
+      "dateCreated": "2024-01-22T14:57:09-0800",
+      "dateStarted": "2024-01-22T15:59:01-0800",
+      "dateFinished": "2024-01-22T15:59:01-0800",
+      "status": "FINISHED",
+      "$$hashKey": "object:213"
+    }
+  ],
+  "name": "UBA_Data_Validation_Model_Monitoring",
+  "id": "2JKXGR6EV",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.10.1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Splunk/UBA_Data_Validation_Model_Monitoring"
+}
