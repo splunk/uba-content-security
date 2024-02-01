@@ -77,15 +77,15 @@ sudo firewall-cmd --reload
 ```
 
 ### 5. Navigate to your usual UBA host (non-ssl), http://<UBA_host>:<port number>/, example http://uba-host.com in the below example is what you will see:
-![alt text](https://github.com/splunk/uba-content-security/blob/main/zeppelin-notebook/zeppelin-homepage.png)
+![alt text](https://github.com/splunk/uba-content-security/blob/main/zeppelin_notebook/zeppelin-homepage.png)
 
 ### 6. Now, to add a note. Select "Import note" under "Notebook".  Select "JSON File/IPYNB" file then upload a .zpln format file.
-![alt text](https://github.com/splunk/uba-content-security/blob/main/zeppelin-notebook/import-note.png)
+![alt text](https://github.com/splunk/uba-content-security/blob/main/zeppelin_notebook/import-note.png)
 
-![alt text](https://github.com/splunk/uba-content-security/blob/main/zeppelin-notebook/select-file.png)
+![alt text](https://github.com/splunk/uba-content-security/blob/main/zeppelin_notebook/select-file.png)
 
 ### 7. Once imported all paragraphs will run for the first time.
 
 
 ### 8. You can create new notes that would use different interpreter, i.e. Spark, Python, Java. etc.
-![alt text](https://github.com/splunk/uba-content-security/blob/main/zeppelin-notebook/new-note.png)
+![alt text](https://github.com/splunk/uba-content-security/blob/main/zeppelin_notebook/new-note.png)
