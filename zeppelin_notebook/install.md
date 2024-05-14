@@ -17,20 +17,27 @@ Example of expected output:
 ```
 $ /opt/caspida/bin/zeppelin-notebook install 0.10.1
 Installing Zeppelin notebook v0.10.1
-Downloading from http://mirrors.ocf.berkeley.edu/apache/zeppelin/zeppelin-0.10.1/zeppelin-0.10.1-bin-all.tgz
-zeppelin-0.10.1-bin 100%[===================>]   1.56G   431MB/s    in 5.5s
+Downloading from http://mirrors.ocf.berkeley.edu/apache/zeppelin/zeppelin-0.10.1/zeppelin-0.10.1-bin-all.tgz 
+zeppelin-0.10.1-bin 100%[===================>]   1.56G   316MB/s    in 7.1s    
 
-2024-01-22 13:33:13 (290 MB/s) - ‘/tmp/zeppelin/zeppelin-0.10.1-bin-all.tgz’ saved [1680577910/1680577910]
+2024-05-14 14:31:55 (226 MB/s) - ‘/tmp/zeppelin/zeppelin-0.10.1-bin-all.tgz’ saved [1680577910/1680577910]
 
-Downloading package                                        [  OK  ]
+Downloading Zeppelin package                               [  OK  ]
 Installed at /var/vcap/packages/                           [  OK  ]
 Zeppelin home is /var/vcap/packages/zeppelin-0.10.1-bin-all/
 Setting port to 28080                                      [  OK  ]
+Setting hostname to sample.splunk.com                      [  OK  ]
 Setting basic interpreter                                  [  OK  ]
+Installing Impala interpreter
+Copying Impala jdbc package from UBA                       [  OK  ]
+Setting Impala interpreter                                 [  OK  ]
 Creating basic UBA notebook                                [  OK  ]
 ```
 
 ### 2. Modify the server address from file, /var/vcap/packages/zeppelin-0.10.1-bin-all/conf/zeppelin-site.xml
+
+>[!NOTE]
+>This step is not required if UBA is 5.4.1+
 
 Update:
 ```
