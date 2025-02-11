@@ -1,0 +1,948 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%md ## UBA Windows Log Onboarding for Powershell Detection\nThis notebook includes a series of commands designed to verify whether the loaded Windows EVTX events include entries related to PowerShell operations.",
+      "user": "admin",
+      "dateUpdated": "2025-01-31T16:43:34+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/text",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>UBA Windows Log Onboarding for Powershell Detection</h2>\n<p>This notebook includes a series of commands designed to verify whether the loaded Windows EVTX events include entries related to PowerShell operations.</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1738341605921_1117166916",
+      "id": "paragraph_1738341605921_1117166916",
+      "dateCreated": "2025-01-31T16:40:05+0000",
+      "dateStarted": "2025-01-31T16:43:19+0000",
+      "dateFinished": "2025-01-31T16:43:19+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:43159"
+    },
+    {
+      "text": "%md ### Refresh Impala Cubes\nPrior to refreshing Impala cube check if the events are processed (UI => Home => Data Sources => Data Source Details)",
+      "user": "admin",
+      "dateUpdated": "2025-01-31T16:46:21+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h3>Refresh Impala Cubes</h3>\n<p>Prior to refreshing Impala cube check if the events are processed (UI =&gt; Home =&gt; Data Sources =&gt; Data Source Details)</p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1738341859119_1093772657",
+      "id": "paragraph_1738341859119_1093772657",
+      "dateCreated": "2025-01-31T16:44:19+0000",
+      "dateStarted": "2025-01-31T16:46:21+0000",
+      "dateFinished": "2025-01-31T16:46:21+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43160"
+    },
+    {
+      "text": "%sh\n/opt/caspida/bin/atools -w",
+      "user": "admin",
+      "dateUpdated": "2025-01-31T17:41:24+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sh",
+        "fontSize": 9,
+        "editorHide": false,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1738341981388_1477404352",
+      "id": "paragraph_1738341981388_1477404352",
+      "dateCreated": "2025-01-31T16:46:21+0000",
+      "dateStarted": "2025-01-31T16:46:41+0000",
+      "dateFinished": "2025-01-31T16:46:43+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43161"
+    },
+    {
+      "text": "%md ### Checking the Powershell Batch and Streaming Cubes\n",
+      "user": "admin",
+      "dateUpdated": "2025-01-31T16:53:38+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/text",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h3>Checking the Powershell Batch and Streaming Cubes</h3>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1738342001135_1360097546",
+      "id": "paragraph_1738342001135_1360097546",
+      "dateCreated": "2025-01-31T16:46:41+0000",
+      "dateStarted": "2025-01-31T16:53:32+0000",
+      "dateFinished": "2025-01-31T16:53:32+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43162"
+    },
+    {
+      "text": "%impala\nuse caspida;select count(*) as \"Collected powershell events\" from powershellevent;",
+      "user": "admin",
+      "dateUpdated": "2025-01-31T17:03:21+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 124,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "collected powershell event": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : -1\n"
+          },
+          {
+            "type": "TABLE",
+            "data": "collected powershell event\n11094\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1738342685508_406468521",
+      "id": "paragraph_1738342685508_406468521",
+      "dateCreated": "2025-01-31T16:58:05+0000",
+      "dateStarted": "2025-01-31T16:59:00+0000",
+      "dateFinished": "2025-01-31T16:59:00+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43163"
+    },
+    {
+      "text": "%impala(refreshInterval=60000)\nuse caspida;select eventid, count(*) as count from powershellevent group by eventid",
+      "user": "admin",
+      "dateUpdated": "2025-02-05T15:13:21+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "eventid": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [],
+              "groups": [],
+              "values": []
+            },
+            "helium": {}
+          },
+          "2": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "eventid": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "eventid",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1738342697468_1690164147",
+      "id": "paragraph_1738342697468_1690164147",
+      "dateCreated": "2025-01-31T16:58:17+0000",
+      "dateStarted": "2025-02-05T15:12:59+0000",
+      "dateFinished": "2025-02-07T18:42:07+0000",
+      "status": "ABORT",
+      "$$hashKey": "object:43164",
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : -1\n"
+          },
+          {
+            "type": "TABLE",
+            "data": "eventid\tcount\n4103\t29\n4688\t1563\n4104\t7997\n"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%impala\nuse caspida;select eventtime, eventid, userid, username, processname, left(commandargs, 400) as commandargs400, destip, desthostname, srcip, srchostname from powershellevent limit 50;",
+      "user": "admin",
+      "dateUpdated": "2025-01-31T17:27:34+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "eventtime0",
+                        "visible": true,
+                        "width": 150,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "eventid1",
+                        "visible": true,
+                        "width": 150,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "userid2",
+                        "visible": true,
+                        "width": 150,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "username3",
+                        "visible": true,
+                        "width": 172,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "processname4",
+                        "visible": true,
+                        "width": 166,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "commandargs4005",
+                        "visible": true,
+                        "width": 916,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "destip6",
+                        "visible": true,
+                        "width": 150,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "desthostname7",
+                        "visible": true,
+                        "width": 186,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "srcip8",
+                        "visible": true,
+                        "width": 150,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "srchostname9",
+                        "visible": true,
+                        "width": 235,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1,
+                      "paginationPageSize": 250
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "eventtime": "string",
+                      "eventid": "string",
+                      "userid": "string",
+                      "username": "string",
+                      "processname": "string",
+                      "commandargs400": "string",
+                      "destip": "string",
+                      "desthostname": "string",
+                      "srcip": "string",
+                      "srchostname": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          },
+          "2": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "eventtime": "string",
+                      "eventid": "string",
+                      "userid": "string",
+                      "username": "string",
+                      "processname": "string",
+                      "commandargs300": "string",
+                      "destip": "string",
+                      "desthostname": "string",
+                      "srcip": "string",
+                      "srchostname": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : -1\n"
+          },
+          {
+            "type": "TABLE",
+            "data": "eventtime\teventid\tuserid\tusername\tprocessname\tcommandargs400\tdestip\tdesthostname\tsrcip\tsrchostname\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"MAGE_BASE_RELOCATION structure to find memory addresses which need to be modified   [IntPtr]$BaseRelocPtr = [IntPtr](Add-SignedIntAsUnsigned ([Int64]$PEInfo.PEHandle) ([Int64]$PEInfo.IMAGE_NT_HEADERS.OptionalHeader.BaseRelocationTable.VirtualAddress))   while($true)   {    #If SizeOfBlock == 0, we are done    $BaseRelocationTable =\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"ltY///X15dW4PEMMOD7ChTVYvqi9lWV4tFDIsLiUQkKItDKIlEJBhAiUQkHECJQyiLVRjo0ssAAItJEIvQA9KJRCQg/zTRi8tqAP91AGobWujz0f//g8QMhcAPhagCAACLy+iM7gAAi/iF/w+ElwIAAIN8JDwAi0QkPH0Di0Usi9WJRCQki8vo/hwAAItzKIlEJDSJdCQsjU4BiUsohcB0Av8AavdQD7dFMovPUGoAVmpyWuj1dP7/i1QkLIPEFIvLamH/dCQs/3QkKOhrZwAAg8QMi89qAGoA/3QkIGokWuiLc/7/g8QMiUQkKIvL6GCd//+De2wAiUQ\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"+2ThiDxBSLdCQoupYAAACL+GoA/3QkcFGLzugAGv7/g8QMhf90DYvP6C6cAQDrBIt0JCiLTCQUi9XoiP3+/4tEJCyFwHQPi9CLzugpIf7/i05siUgIX15dW4PERMOLQUiLEWoAjUg46ITm/P9Zi0AIw1ZXi/qL8YX/dDpTi18ci1MQ6D/9/v+LUxSF0nQHi87oiwj//4tTCIvO6Ol3AACLVwyLzugd/f7/W4vXi85fXukVr/z/X17DUVFTVVaL8YlUJBBXiwaJRCQQi0AgJQBAAACDyAAPhO0AAACLXCQcg3s4AA+F3wAAADP/6LKTAACLy4vo6GT///+\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"yJRzyF9g+FqQIAAItsJCjB5QQDbxCDfCRUAIt1BIl0JCx0T4tGBA9XwIsAi0A8Zg8TRCQgiwiFyXQ0jVQkIFJQ/1EYWVmFwHUOOUQkJHwffwY5RCQgdhcz9ovXaOD4DRCLy0bosKT7/1npRgIAAINPGAiLRCQYi1QkUItABItIICtIJItHEIlMJCCLTgSLVAIMiwmLUlDoBi38/4tMJBgz0uj8ivz/i9CLzujzivz/i04EaiFaiwnoXC38/2jU4Q0Qi9OLz+hl/P//i/BZhfYPhd8BAACLTCQYM9I5VCRUUGoCWA9E0Ogrj/z/i/BZhfYPhb4BAACLTCQ\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"ZuD8/4PEEItMJFCFyXRBi0dsagCDwAJQUWoSWovP6OHd/P+LTCR4g8QMjQQxUP90JEiLRCQw/3QkaP90JEAPtpRBzHQMEIvP6B3g/P+DxBCLdCQY90YkAAAEAHQVagBqAf90JDyLz2p3WuiV3fz/g8QM9kYkQHRai4wkvAAAAPZBLCB1TYtEJCwz9kYz/+ldAQAAiUwkHOnx/v//gHwkQwAPhOb+//+LdCQkhcB1HYtEJEQzyVEDxlBRaklai8/oQN38/4PEDINkJBwARum//v//i1QkSDP/i/eLSgz2QSQgdXeLjCS8AAAAD7dBLKkABAAAdS2pABAAA\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"neWAddr   Write-BytesToMemory -Bytes $Shellcode1 -MemoryAddress $GetCommandLineWAddrTemp   $GetCommandLineWAddrTemp = Add-SignedIntAsUnsigned $GetCommandLineWAddrTemp ($Shellcode1.Length)   [System.Runtime.InteropServices.Marshal]::StructureToPtr($CmdLineWArgsPtr, $GetCommandLineWAddrTemp, $false)   $GetCommandLineWAddrTemp = Add-S\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"\"Unable to allocate memory in the remote process. If the PE being loaded doesn't support ASLR, it could be that the requested base address of the PE is already in use\"    }   }   else   {    if ($NXCompatible -eq $true)    {     $PEHandle = $Win32Functions.VirtualAlloc.Invoke($LoadAddr, [UIntPtr]$PEInfo.SizeOfImage, $Win32Constants\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"sNAEiLT2RIhcl0CItXHOhK/P//SIvP/xVdyw0A/8Y7cwhyh0iLSwz/FUzLDQBIi8v/FUPLDQBIi1wkMEiLdCQ4SIPEIF/DzMzMSIlcJAhXSIPsMEiL+kyNBVRHDwAz0kiNDetMDwDorpEAADPbSIX/dG9Eiw9MjQU1Rw8AM9JEiUwkIEiNDRdNDwDoipEAAESLTwRMjQUXRw8AM9JEiUwkIEiNDUlNDwDobJEAAESLTwhMjQX5Rg8AM9JIjQ14TQ8A6FORAAA5Xwh2FkiLVwyLw0iLFMLoEwAAAP/DO18IcupIi1wkQEiDxDBfw8xIiVwkCEiJdCQQSIl\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"//AABmOUXbD4X/AAAAZoN93TUPhfQAAAC6cAAAAI1K0P8V6RYNAEiJB0iFwA+E2gAAAEiNVX9Ji8z/FXgRDQCEwHQtSIsXSItNf0iDwiT/FWsRDQCFwHkOi9BIjQ2+Rg8A6BHd//9Ii01//xVvEQ0ASY1OBOjafgsASIvISIlcJDBIiwdFM8mJXCQoSIlIEEmNTgRIixfyDxBF1/IPEUIYi0XfiUIgSIsHiXAIuAMAAABEi8CJRCQgi9D/FUcWDQBIi8hIiwdIiUhoSIsPSItBaEj/yEiD+P13B0iL+f/G6yv/FRAWDQCD+AV0FP8VBRYNAIvQSI0NhEY\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"iNVehIjQW8AAAATIv5SIlF6EiNDSoCAABIjUXQvgEAAABIiUXwiXX46KmL//8z/4XAQA+Zx4X/dG+DffgAdBZIjUXoSIlEJCDo+WT//zP/hcBAD5nHhf90T0iNXdCF9nQXi1MITYvGSIsLQf/XSItbEIvwSIXbdeVIjV3QSIsLSIXJdAb/FQy8DABIi3MQSI1F0Eg72HQJSIvL/xXmuwwASIveSIX2ddRMjVwkYIvHSYtbIEmLcyhJi3swSYvjQV9BXl3DzMxIiVwkCEiJbCQQVldBVEFWQVdIg+xQSYvYRIviTIvxM/b/FbG6DABIi+hIOTMPhOwAAAB\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"cgBvAHAAZQByAHQAeQAoAFMASABBADEAKQAgACgAMAB4ACUAMAA4AHgAKQAKAAAAcwBpAGwAZQBuAHQAAAAAAG4AbwBrAGUAeQAAAHMAdABvAHIAZQAAAAAAAAAgACoAIABTAHkAcwB0AGUAbQAgAFMAdABvAHIAZQAgACAAOgAgACcAJQBzACcAIAAoADAAeAAlADAAOAB4ACkACgAgACoAIABTAHQAbwByAGUAIAAgACAAIAAgACAAIAAgACAAOgAgACcAJQBzACcACgAKAAAAAAAoAG4AdQBsAGwAKQAAAAAACQBLAGUAeQAgAEMAbwBuAHQAYQBpA\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"-PEHandle $PEHandle -Win32Types $Win32Types -Win32Constants $Win32Constants   if (($PEInfo.FileType -ieq \"DLL\") -and ($RemoteProcHandle -eq [IntPtr]::Zero))   {    #########################################    ### YOUR CODE GOES HERE    #########################################                     Write-Verbose \"Calling function wit\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"JHj/FS/xDABIi5QkEAEAAEiNTCR4/xWs8QwARTP2hcBBD5nGRIl0JERIi4wkGAEAAP8VeOkMAEiLTCRw/xVt6QwASIuMJJAAAAD/FV/pDADrN0SLwIvQSI0N6ToPAOjsr///vwEAAABIi5wkAAEAAESLfCRIRIt0JETrDb8BAAAASIucJAABAABFhf90FUWF9nUSSIO8JAgBAAAAdQVIhdt0AjP/i8dIi5wk4AAAAEiBxLAAAABBX0FeQV1BXF/DzMzMTIvcSYlbCEmJcxBXSIPsYEmL+UmL8DPbiVwkQEkhW+BNiUPISY1D4EmJQ8BNiUu4TIvKTIsBS\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"zlBqAGoKWug8R/7/g8QMi9CLzmr0/3QkbOjHTf7/WVlqAlqLzujiS/7/60v/dCQYagD/dCRgaila6ApH/v+JRCRc6VH/////dCQ4gHsSAFBqCw+UwA+2wFD/dCQ0/3QkLP90JHRR/7QkkAAAAIvL6PkAAACDxCSDfCQQAIvOdBSLVCRg6L5J/v+LTCRE6PLIAQDrPoN8JDAAdB2LfCRQagCNRwFQ/3QkPGoFWuiXRv7/g8QMi9frDYtUJFDoBEf+/4tUJFCLzujVTf7/i05siUgIgHsSAHUTg3twAHUNg3toAHQHi8vo0z0AAItEJGSFwHQxagAz24vOQ\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"/v+Av6UAAAAAi9B1JotFCIN4BAB1HYXSdBmLTxCLQkiLVCQMagE7QRxYD0TQiVQkDOsEi1QkDIB/UQAPhdcCAAD/dCQYjUwkLGhM9g0QUovW6E6R/v+DxAyL0+h8kf7/hcAPhbACAACL04vO6Jno/v+JRCQchcB1GYC/pAAAAAEPhZICAABACYeoAAAA6YYCAACDeDgAdApoVPYNEOno/v//i1QkGIvP6HOe/v+JRCQQhcAPhF8CAACLTCQci9D/MYvOaEz2DRDoa5/+/1lZhcAPhTACAACAvsAAAAACc0+LTCQMi0cQA8mLVCQQagCLTMgMg8Eo6CsE/\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"BlAHIAYgBlAHIAbwBzAF8AYQBzAGsAIAA7ACAAJwAlAHcAWgAnACAASwBlAHIAYgBlAHIAbwBzACAAbgBhAG0AZQAgAG4AbwB0ACAAZgBvAHUAbgBkACEACgAAAEUAUgBSAE8AUgAgAGsAdQBoAGwAXwBtAF8AawBlAHIAYgBlAHIAbwBzAF8AYQBzAGsAIAA7ACAAQQB0ACAAbABlAGEAcwB0ACAALwB0AGEAcgBnAGUAdAAgAGEAcgBnAHUAbQBlAG4AdAAgAGkAcwAgAHIAZQBxAHUAaQByAGUAZAAgACgAZQBnADoAIAAvAHQAYQByAGcAZQB0ADo\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"8AcwB0AHIAaQBuAGcAXwBFAG4AYwBvAGQAZQBCADYANABfAGgAZQBhAGQAZQByAHMAIAAoADAAeAAlADAAOAB4ACkACgAAAAAAAABFAFIAUgBPAFIAIABrAHUAaABsAF8AbQBfAGMAcgB5AHAAdABvAF8AawBlAHkAdQB0AGkAbABfAGUAeABwAG8AcgB0AF8AcABrAGMAcwA4AF8AZgBpAGwAZQAgADsAIABOAEMAcgB5AHAAdABFAHgAcABvAHIAdABLAGUAeQAoAGQAYQB0AGEAKQA6ACAAMAB4ACUAMAA4AHgACgAAAAAARQBSAFIATwBSACAAawB\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-MimikatzWDigestDowngrade.ps1 \"SYtrKEmLczBJi+NBXUFcX8PMSIlcJAhIiWwkEEiJdCQYV0FUQVVIgeygAAAASYvYTIvqTIvhvwEAAAAz9kiNLfq5AgCF/w+E0QAAAEyLRQBIjUQkcEUzyUiJRCQoSYvVSYvMx0QkIBkAAgAz/+j8ef//hcAPhIgAAABIIXwkYEghfCRYSCF8JFBIIXwkSEghfCRASCF8JDhIIXwkMEiLVCRwSCF8JChIIXwkIEyNjCTYAAAATI2EJIgAAABJi8zHhCTYAAAACQAAAOgzfP//hcB0IEyNRLR4SI0VG88BAEiNjCSIAAAA6ELMAACD+\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-MimikatzWDigestDowngrade.ps1 \"UjYQEASI0NdMkBAIvQ6OWD////xkj/x0iNBSF8AQCD/gVys+mPAgAAi9C5QAAAAEgD0v8VR2EBAEiL8EiFwA+EcwIAAIuMJKAAAABFM8lFM8CJTCQoSIlEJCBIjQXeewEAixS4SIvL/xXiXgEAO4QkoAAAAA+FIAIAAEiNDTbCAQBMi8aL1ehsg///g6QkoAAAAABFM8BBjVACTI2MJKAAAABIi8v/FcxeAQCFwA+EwAEAAIuUJKAAAAC5QAAAAP8VumABAEiL+EiFwA+EiAEAAEyNjCSgAAAATIvAugIAAABIi8v/FY1eAQCFwA+\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"ZQAgACgAMAB4ACUAMAA4AHgAKQAKAAAARQBSAFIATwBSACAAawB1AGgAbABfAG0AXwBzAHQAYQBuAGQAYQByAGQAXwB2AGUAcgBzAGkAbwBuACAAOwAgAEcAZQB0AEYAaQBsAGUAVgBlAHIAcwBpAG8AbgBJAG4AZgBvAEUAeAAgACgAMAB4ACUAMAA4AHgAKQAKAAAAAABjAGEAYgAAAG0AaQBtAGkAawBhAHQAegBfAHgAOAA2AF8AcwB5AHMAZgBpAGwAZQBzAF8AJQB1AAAAAABDAEEAQgA6ACAAJQBTAAoAAAAAACAALQA+ACAAJQBzAAoAAABFA\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"8AUABJAE4ATABvAGcAbwBuAE8AcgBQAGkAYwB0AHUAcgBlAFAAYQBzAHMAdwBvAHIAZABPAHIAQgBpAG8AbQBlAHQAcgBpAGMAIAA7ACAAQwBvAG4AdgBlAHIAdABTAGkAZABUAG8AUwB0AHIAaQBuAGcAUwBpAGQAIAAoADAAeAAlADAAOAB4ACkACgAAAEUAUgBSAE8AUgAgAGsAdQBoAGwAXwBtAF8AdgBhAHUAbAB0AF8AbABpAHMAdABfAGQAZQBzAGMASQB0AGUAbQBfAFAASQBOAEwAbwBnAG8AbgBPAHIAUABpAGMAdAB1AHIAZQBQAGEAcwB\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"AGQAYwBzAGgAYQBkAG8AdwBfAG8AYgBqAGUAYwB0AEcAVQBJAEQAXwBpAG4AdgBvAGMAYQB0AGkAbwBuAEcAVQBJAEQAIAA7ACAAbABkAGEAcABfAGMAbwB1AG4AdABfAGUAbgB0AHIAaQBlAHMAIABpAHMAIABOAE8AVAAgADEACgAAAAAARQBSAFIATwBSACAAawB1AGgAbABfAG0AXwBsAHMAYQBkAHUAbQBwAF8AZABjAHMAaABhAGQAbwB3AF8AbwBiAGoAZQBjAHQARwBVAEkARABfAGkAbgB2AG8AYwBhAHQAaQBvAG4ARwBVAEkARAAgADsAI\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-MimikatzWDigestDowngrade.ps1 \"XwBtAGkAbQBpAGQAcgB2ACAAOwAgAGsAdQBsAGwAXwBtAF8AcwBlAHIAdgBpAGMAZQBfAHIAZQBtAG8AdgBlACAAKAAwAHgAJQAwADgAeAApAAoAAAAAAFAAcgBvAGMAZQBzAHMAIAA6ACAAJQBzAAoAAABFAFIAUgBPAFIAIABrAHUAaABsAF8AbQBfAGsAZQByAG4AZQBsAF8AcAByAG8AYwBlAHMAcwBQAHIAbwB0AGUAYwB0ACAAOwAgAGsAdQBsAGwAXwBtAF8AcAByAG8AYwBlAHMAcwBfAGcAZQB0AFAAcgBvAGMAZQBzA\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-MimikatzWDigestDowngrade.ps1 \"BpAG4AIAAlADAAOAB4AAoAAABFAFIAUgBPAFIAIABrAHUAaABsAF8AbQBfAGwAcwBhAGQAdQBtAHAAXwBsAHMAYQAgADsAIABTAGEAbQBFAG4AdQBtAGUAcgBhAHQAZQBVAHMAZQByAHMASQBuAEQAbwBtAGEAaQBuACAAJQAwADgAeAAKAAAAAABFAFIAUgBPAFIAIABrAHUAaABsAF8AbQBfAGwAcwBhAGQAdQBtAHAAXwBsAHMAYQAgADsAIABTAGEAbQBPAHAAZQBuAEQAbwBtAGEAaQBuACAAJQAwADgAeAAKAAAAAABFAFI\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-SessionGopher.ps1 \"StringValue -ArgumentList $HKU,$Location,\"HostName\" @optionalCreds).sValue                           [void]$ArrayOfPuTTYSessions.Add($PuTTYSessionObject)                  }            if ($ArrayOfPuTTYSessions.count -gt 0) {              $UserObject | Add-Member -MemberType NoteProperty -Name \"PuTTY Sessions\" -Value $ArrayOfPu\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-MimikatzWDigestDowngrade.ps1 \"6Hz7//8zwEiDxCjDzEiJXCQIV0iD7DBIg2QkIABMjQUlvAEARTPJSIvai/nohNf//0UzwEiL04vPRIvI6ED7//9Ii1wkQDPASIPEMF/DzMzMSIvESIlYCFdIg+wwTIsBSIv6M9tFiwhJg8AEQQ/JTIlA8GZEiUjqZkSJSOhBD7fBZkUDyUkDwGZEiQpmQYPBAkiJAUEPt9GNS0BmiVcC/xUchAEASIlHCEiFwHQjSI1UJCBFM8BIi8/oRRABAIXAD5nDhdt1CkiLTwj/FeiDAQCLw0iLXCRASIPEMF/DzMzMSIlcJAhIiWwkEEiJd\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Pivot\\Invoke-NetworkRelay.ps1 \"function Invoke-NetworkRelay {    <# .SYNOPSIS Nishang script which can be used to run netsh port forwarding/relaying commands on remote computers.   .DESCRIPTION This script is a wrapper around the netsh Windows command's portproxy functionality. It could be used to create and remove  network relays between computers. The scrip\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikittenz.ps1 \"function Invoke-Mimikittenz {<# .SYNOPSIS Extracts juicy info from memory.  .DESCRIPTION Utilizes Windows function ReadProcessMemory() to extract juicy information from target process memory using regex.   Author: Jamieson O'Reilly (https://au.linkedin.com/in/jamieson-o-reilly-13ab6470) License: https://creativecommons.org/licen\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-MimikatzWDigestDowngrade.ps1 \"AGMARgB1AG4AYwB0AGkAbwBuACAAOwAgAE0AaQBzAHMAaQBuAGcAIABzAGUAcgB2AGkAYwBlACAAbgBhAG0AZQAgAGEAcgBnAHUAbQBlAG4AdAAKAAAAAABTAHQAYQByAHQAaQBuAGcAAAAAAFIAZQBtAG8AdgBpAG4AZwAAAAAAUwB0AG8AcABwAGkAbgBnAAAAAABTAHUAcwBwAGUAbgBkAGkAbgBnAAAAAABSAGUAcwB1AG0AaQBuAGcAAAAAAFAAcgBlAHMAaAB1AHQAZABvAHcAbgAAAFMAaAB1AHQAZABvAHcAbgAAAAAAc\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikittenz.ps1 \"}          public Regex Regex { get { return mRegex; } }            public string Name;           public string Pattern;        }      public class MInterop     {         [DllImport(\"kernel32.dll\", SetLastError = true)]         [return: MarshalAs(UnmanagedType.Bool)]         public static extern bool CloseHandle(IntPtr hObject);\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-SessionGopher.ps1 \"function Invoke-SessionGopher  {<# .SYNPOSIS Extracts and decrypts saved session information for software typically used to access Unix systems.  .DESCRIPTION Queries HKEY_USERS for PuTTY, WinSCP, and Remote Desktop saved sessions. Decrypts saved passwords for WinSCP. Extracts FileZilla, SuperPuTTY's saved session information \tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Scan\\Invoke-BruteForce.ps1 \"function Invoke-BruteForce {<# .SYNOPSIS Nishang payload which performs a Brute-Force Attack against SQL Server, Active Directory, Local Accounts, Web and FTP.  .DESCRIPTION This payload can brute force credentials for SQL Server, ActiveDirectory, LocalAccounts, Web or FTP.  .PARAMETER Computername Specifies a SQL Server, Domain, C\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-SessionGopher.ps1 \"[void]$ArrayofPPKFiles.Add($ThoroughObject)       } elseif ($Extension -eq \".rdp\") {         $ThoroughObject.Path = $FilePath.Name         [void]$ArrayofRDPFiles.Add($ThoroughObject)       } elseif ($Extension -eq \".sdtid\") {         $ThoroughObject.Path = $FilePath.Name         [void]$ArrayofsdtidFiles.Add($ThoroughObject)   \tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Scan\\Invoke-PortScan.ps1 \"function Invoke-PortScan { <# .SYNOPSIS Nihsang payload which Scan IP-Addresses, Ports and HostNames  .DESCRIPTION Scan for IP-Addresses, HostNames and open Ports in your Network.      .PARAMETER StartAddress StartAddress Range  .PARAMETER EndAddress EndAddress Range  .PARAMETER ResolveHost Resolve HostName  .PARAMETER ScanPort Perfo\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Pivot\\Run-EXEonRemote.ps1 \"5 16 175 24 175 40 175 48 175 56 175 64 175 72 175 80 175 88 175 96 175 104 175 112 175 120 175 136 175 144 175 152 175 160 175 168 175 176 175 184 175 192 175 208 175 216 175 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 \tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Prasadhak\\Invoke-Prasadhak.ps1 \"function Invoke-Prasadhak {<# .SYNOPSIS Nishang script which checks running processes for malwares.  .DESCRIPTION This script uses takes md5 hashes of running processes (the correspondibg executable)  on the target system and search the hashes in the Virustotal database using the Public API.  .PARAMETER APIKEY THe APIKEY provid\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-SessionGopher.ps1 \"$_.Name] = $_.InnerText               }                          }        }      # Create object from collected data, excluding some trivial information     [void]$ArrayOfFileZillaSessions.Add((New-Object PSObject -Property $FileZillaSessionHash | Select-Object -Property * -ExcludeProperty \"#text\",LogonType,Type,BypassProxy,Sy\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Shells\\Invoke-JSRatRegsvr.ps1 \"function Invoke-JSRatRegsvr {<# .SYNOPSIS Nishang script which can be used for Reverse shell from a target over HTTP using regsvr32.exe. Useful for bypassing Applocker.  .DESCRIPTION This script starts a listener on the attacker's machine. The listener needs a port to listen.  On the target machine execute the below command: \"re\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Pivot\\Run-EXEonRemote.ps1 \"function Run-EXEonRemote {<# .SYNOPSIS Nishang script which can drop and execute executables on multiple computers.  .DESCRIPTION The script should be used with -FilePath parameter of  Invoke-Command to drop and execute executables on multiple computers. The executables need to be supplied in text format. ExetoText script of Nishang\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Shells\\Invoke-ConPtyShell.ps1 \"#Requires -Version 2  function Invoke-ConPtyShell {        <#         .SYNOPSIS             ConPtyShell - Fully Interactive Reverse Shell for Windows              Author: splinter_code             License: MIT             Source: https://github.com/antonioCoco/ConPtyShell                  .DESCRIPTION             ConPtyShell - F\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Shells\\Invoke-ConPtyShell.ps1 \"uint bufferSize=16*1024;         byte[] bytesToWrite = new byte[bufferSize];         bool readSuccess = false;         Int32 bytesSent = 0;         uint dwBytesRead=0;         do{             readSuccess = ReadFile(OutputPipeRead, bytesToWrite, bufferSize, out dwBytesRead, IntPtr.Zero);             bytesSent = shellSocket.Send(b\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"$Win32Constants | Add-Member -MemberType NoteProperty -Name TOKEN_ADJUST_PRIVILEGES -Value 0x0020   $Win32Constants | Add-Member -MemberType NoteProperty -Name SE_PRIVILEGE_ENABLED -Value 0x2   $Win32Constants | Add-Member -MemberType NoteProperty -Name ERROR_NO_TOKEN -Value 0x3f0      return $Win32Constants  }   Function Get-Win32\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"'Public')).SetOffset(32) | Out-Null   ($TypeBuilder.DefineField('FileAlignment', [UInt32], 'Public')).SetOffset(36) | Out-Null   ($TypeBuilder.DefineField('MajorOperatingSystemVersion', [UInt16], 'Public')).SetOffset(40) | Out-Null   ($TypeBuilder.DefineField('MinorOperatingSystemVersion', [UInt16], 'Public')).SetOffset(42) | Out-N\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"PMzEiJXCQIV0iD7CBIi4GQAAAASIvZSIXASIv6SA9F2DPJi5MIAQAAhdJ+FkiLg2ABAABIOzh0R//BSIPACDvKfPFIi4tgAQAAjQTVCAAAAEhj0OhSg/r/SIXAdBpIY4sIAQAASImDYAEAAEiJPMj/gwgBAADrCEiLC+jThvr/SItcJDBIg8QgX8NIiVwkEEiJbCQYVldBVkiD7DBIg2QkUABIi/JIg3ooAEyL8UiLKkiLGQ+FAQEAAEiLRQhIhcB0DUg7RRB0BzPA6fAAAAC6gAAAAEiLy+g6g/r/SIv4SIXAdORIi1YISIvL6BKF+v9IiQdIhcB1DUi\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"CEWLxkmL14l0JCBJi81ED78MeOjjoP3/ugEAAAAD8kgD+kk7/HzWSItdOEyLtdAAAAAPt3WQRItlqEWF5HQgi0UUhcB0CovQSYvN6Ido/P8Pv8aJRdyLRcCJRCR862BIi1WgSItNuOiL0/7/RItFwEiL+ItEJHy6XAAAAA+/9kmLzUSLzolEJCDopWD8/0SLzkyLx4vQSYvN6E1p/P+LRcC6hAAAAESLTCR8SYvNRItF0Il0JCiJRCQg6IRj/P9FM9JMOZUIAQAAD4UAAgAAQbkCAAAARTvhdBBIi00I6Ji5AABFM9JFjUoCi0XISGN1LIXAD4W7AAAAQ\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"uAcAAADp0QAAAID5AkiNBcf3//9IjRUs+P//SA9EwrkAAgAASIlDQOhig/3/TIvwSIXAdMtIhf90XUmLRCQISIXAdBJIO/h1BDP26w1IY3cISAPw6wRIi3cISINnCAAz7Uk5LnQlTYv+TYsHSIvXSIvL6JD+//9JgycASP/FSIv4TY087kmDPwB13kmJPO5Ii/5IhfZ1ozPASYv+jXBASIM/AHQYSIXAdBBMiwdIi9BIi8voT/7//+sDSIsHSIPHCEiD7gF12EmLzkmJBCToqID9/0iLQxgPtkATSItcJEBIi2wkSEiLdCRQSIt8JFhIg8QgQV9BXkFcw\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\nishang.psm1 \"<# Import this module to use all the scripts in Nishang, except Keylogger, in the current PowerShell session. The module must reside in the Nishang folder.  PS > Import-Module .\\nishang.psm1  http://www.labofapenetrationtester.com/2014/06/nishang-0-3-4.html https://github.com/samratashok/nishang #>   if(!$PSScriptRoot) {      $PSScriptRoot = Spl\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"eRemoteThread to call LoadLibrary because GetExitCodeThread will only give back a 32bit value, but we need a 64bit address   # Instead, write shellcode while calls LoadLibrary and writes the result to a memory address we specify. Then read from that memory once the thread finishes.   if ($PEInfo.PE64Bit -eq $true)   {    #Allocate \tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"fo.PEHandle) ($StartAddress)) -eq $true)   {    Throw \"Trying to write to memory smaller than allocated address range. $DebugString\"   }   if ((Compare-Val1GreaterThanVal2AsUInt ($FinalEndAddress) ($PEEndAddress)) -eq $true)   {    Throw \"Trying to write to memory greater than allocated address range. $DebugString\"   }  }      Func\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n2024-12-31 00:05:31\t4104\tnull\tnull\tnull\tC:\\Users\\poweru\\Desktop\\nishang-master\\Gather\\Invoke-Mimikatz.ps1 \"i9iA+kF1BUGNQAHDugEAAABBigIEWDrCdw5BgDqoTYtSEEQPRNrr6UGKAjyrdQRBikIyD7bIg+lxdDmD6SN0HyvKdCcrynQXg/kMdAMzwMNBgPlDfClmRTlCLHwl6yBBgPlDQQ+dwEGLwMNFhdtBD5TA6/NFhdt1BkGA+UJ0A0GL0IvCw8xAU0iD7CBIjRXjXAwASIvZ6BNQ/f9FM9uFwHUHuAEAAADrK0iNFc5cDABIi8vo9k/9/4XAdOZIjRXDXAwASIvL6ONP/f+FwEEPlMNBi8NIg8QgW8NIi8RIiVgISIloEEiJcBhXSIPsMINg6ABBi9hFi8iL+\tar-win-2\tar-win-2\tar-win-2\tar-win-2\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1738342401410_1726044598",
+      "id": "paragraph_1738342401410_1726044598",
+      "dateCreated": "2025-01-31T16:53:21+0000",
+      "dateStarted": "2025-01-31T17:27:23+0000",
+      "dateFinished": "2025-01-31T17:27:23+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43165"
+    },
+    {
+      "text": "%md ### Use this command to verify that Powershell batch model was processed\n",
+      "user": "admin",
+      "dateUpdated": "2025-01-31T17:28:30+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/text",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h3>Use this command to verify that Powershell batch model was processed</h3>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1738342508649_786401753",
+      "id": "paragraph_1738342508649_786401753",
+      "dateCreated": "2025-01-31T16:55:08+0000",
+      "dateStarted": "2025-01-31T17:28:16+0000",
+      "dateFinished": "2025-01-31T17:28:16+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43166"
+    },
+    {
+      "text": "%impala\nuse caspida; select * from offlinemodelstats where modelname like 'PowershellDetectionOfflineModel' order by eventtime desc",
+      "user": "admin",
+      "dateUpdated": "2025-01-31T17:29:22+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "eventtime": "string",
+                      "day": "string",
+                      "dayofweek": "string",
+                      "week": "string",
+                      "weekend": "string",
+                      "month": "string",
+                      "holiday": "string",
+                      "modelname": "string",
+                      "totalevents": "string",
+                      "durationinmilliseconds": "string",
+                      "successfulexecutions": "string",
+                      "failedexecutions": "string",
+                      "firstexecutiontime": "string",
+                      "lastexecutiontime": "string",
+                      "lastfailedexecutiontime": "string",
+                      "lastsuccessfulexecutiontime": "string",
+                      "failurereason": "string",
+                      "tspartition": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          },
+          "2": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "eventtime": "string",
+                      "day": "string",
+                      "dayofweek": "string",
+                      "week": "string",
+                      "weekend": "string",
+                      "month": "string",
+                      "holiday": "string",
+                      "modelname": "string",
+                      "totalevents": "string",
+                      "durationinmilliseconds": "string",
+                      "successfulexecutions": "string",
+                      "failedexecutions": "string",
+                      "firstexecutiontime": "string",
+                      "lastexecutiontime": "string",
+                      "lastfailedexecutiontime": "string",
+                      "lastsuccessfulexecutiontime": "string",
+                      "failurereason": "string",
+                      "tspartition": "string"
+                    },
+                    "updated": true
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : -1\n"
+          },
+          {
+            "type": "TABLE",
+            "data": "eventtime\tday\tdayofweek\tweek\tweekend\tmonth\tholiday\tmodelname\ttotalevents\tdurationinmilliseconds\tsuccessfulexecutions\tfailedexecutions\tfirstexecutiontime\tlastexecutiontime\tlastfailedexecutiontime\tlastsuccessfulexecutiontime\tfailurereason\ttspartition\n2025-01-31 02:03:31\t2025-01-31\tFri\t2025-01-27\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t9572\t31\t0\t1735696954025\t1738289011800\t0\t1738289011800\tn/a\t20250131\n2025-01-30 02:02:56\t2025-01-30\tThu\t2025-01-27\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3023313\t30\t0\t1735696954025\t1738202576748\t0\t1738202576748\tn/a\t20250130\n2025-01-29 02:03:13\t2025-01-29\tWed\t2025-01-27\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3186343\t29\t0\t1735696954025\t1738116193268\t0\t1738116193268\tn/a\t20250129\n2025-01-28 02:02:40\t2025-01-28\tTue\t2025-01-27\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3053585\t28\t0\t1735696954025\t1738029760870\t0\t1738029760870\tn/a\t20250128\n2025-01-27 02:02:45\t2025-01-27\tMon\t2025-01-27\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3040880\t27\t0\t1735696954025\t1737943365348\t0\t1737943365348\tn/a\t20250127\n2025-01-26 02:02:45\t2025-01-26\tSun\t2025-01-20\t2025-01-25\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3016927\t26\t0\t1735696954025\t1737856965037\t0\t1737856965037\tn/a\t20250126\n2025-01-25 02:02:49\t2025-01-25\tSat\t2025-01-20\t2025-01-25\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3120194\t25\t0\t1735696954025\t1737770569538\t0\t1737770569538\tn/a\t20250125\n2025-01-24 02:02:45\t2025-01-24\tFri\t2025-01-20\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3114279\t24\t0\t1735696954025\t1737684165836\t0\t1737684165836\tn/a\t20250124\n2025-01-23 02:02:41\t2025-01-23\tThu\t2025-01-20\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3180073\t23\t0\t1735696954025\t1737597761748\t0\t1737597761748\tn/a\t20250123\n2025-01-22 02:03:13\t2025-01-22\tWed\t2025-01-20\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3227621\t22\t0\t1735696954025\t1737511393069\t0\t1737511393069\tn/a\t20250122\n2025-01-21 02:02:41\t2025-01-21\tTue\t2025-01-20\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3064303\t21\t0\t1735696954025\t1737424961860\t0\t1737424961860\tn/a\t20250121\n2025-01-20 02:02:42\t2025-01-20\tMon\t2025-01-20\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3109423\t20\t0\t1735696954025\t1737338562581\t0\t1737338562581\tn/a\t20250120\n2025-01-19 02:02:41\t2025-01-19\tSun\t2025-01-13\t2025-01-18\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3057818\t19\t0\t1735696954025\t1737252161715\t0\t1737252161715\tn/a\t20250119\n2025-01-18 02:03:29\t2025-01-18\tSat\t2025-01-13\t2025-01-18\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3021090\t18\t0\t1735696954025\t1737165809064\t0\t1737165809064\tn/a\t20250118\n2025-01-17 02:02:40\t2025-01-17\tFri\t2025-01-13\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t4638646\t17\t0\t1735696954025\t1737079360737\t0\t1737079360737\tn/a\t20250117\n2025-01-16 02:02:46\t2025-01-16\tThu\t2025-01-13\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3078862\t16\t0\t1735696954025\t1736992966375\t0\t1736992966375\tn/a\t20250116\n2025-01-15 02:02:37\t2025-01-15\tWed\t2025-01-13\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t2877856\t15\t0\t1735696954025\t1736906557717\t0\t1736906557717\tn/a\t20250115\n2025-01-14 02:02:44\t2025-01-14\tTue\t2025-01-13\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3255410\t14\t0\t1735696954025\t1736820164129\t0\t1736820164129\tn/a\t20250114\n2025-01-13 02:02:46\t2025-01-13\tMon\t2025-01-13\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3147455\t13\t0\t1735696954025\t1736733766808\t0\t1736733766808\tn/a\t20250113\n2025-01-12 02:02:39\t2025-01-12\tSun\t2025-01-06\t2025-01-11\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3024600\t12\t0\t1735696954025\t1736647359758\t0\t1736647359758\tn/a\t20250112\n2025-01-11 02:02:39\t2025-01-11\tSat\t2025-01-06\t2025-01-11\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3015768\t11\t0\t1735696954025\t1736560959837\t0\t1736560959837\tn/a\t20250111\n2025-01-10 02:02:38\t2025-01-10\tFri\t2025-01-06\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3069337\t10\t0\t1735696954025\t1736474558961\t0\t1736474558961\tn/a\t20250110\n2025-01-09 02:02:41\t2025-01-09\tThu\t2025-01-06\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3219497\t9\t0\t1735696954025\t1736388161660\t0\t1736388161660\tn/a\t20250109\n2025-01-08 02:02:44\t2025-01-08\tWed\t2025-01-06\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3237294\t8\t0\t1735696954025\t1736301764376\t0\t1736301764376\tn/a\t20250108\n2025-01-07 02:02:39\t2025-01-07\tTue\t2025-01-06\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3060789\t7\t0\t1735696954025\t1736215359221\t0\t1736215359221\tn/a\t20250107\n2025-01-06 02:02:38\t2025-01-06\tMon\t2025-01-06\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3061954\t6\t0\t1735696954025\t1736128958023\t0\t1736128958023\tn/a\t20250106\n2025-01-05 02:02:37\t2025-01-05\tSun\t2024-12-30\t2025-01-04\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3264967\t5\t0\t1735696954025\t1736042557317\t0\t1736042557317\tn/a\t20250105\n2025-01-04 02:02:36\t2025-01-04\tSat\t2024-12-30\t2025-01-04\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3051128\t4\t0\t1735696954025\t1735956156295\t0\t1735956156295\tn/a\t20250104\n2025-01-03 02:02:32\t2025-01-03\tFri\t2024-12-30\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3107780\t3\t0\t1735696954025\t1735869752704\t0\t1735869752704\tn/a\t20250103\n2025-01-02 02:02:32\t2025-01-02\tThu\t2024-12-30\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3092456\t2\t0\t1735696954025\t1735783352688\t0\t1735783352688\tn/a\t20250102\n2025-01-01 02:02:34\t2025-01-01\tWed\t2024-12-30\tnull\t2025-01\tnull\tPowershellDetectionOfflineModel\t-1\t3053478\t1\t0\t1735696954025\t1735696954025\t0\t1735696954025\tn/a\t20250101\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1738344489604_793752673",
+      "id": "paragraph_1738344489604_793752673",
+      "dateCreated": "2025-01-31T17:28:09+0000",
+      "dateStarted": "2025-01-31T17:29:21+0000",
+      "dateFinished": "2025-01-31T17:29:22+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43167"
+    },
+    {
+      "text": "%md ### Finally check whether any rarepowershellioc event was generated",
+      "user": "admin",
+      "dateUpdated": "2025-01-31T17:30:45+0000",
+      "progress": 0,
+      "config": {
+        "tableHide": false,
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionSupport": false
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/markdown",
+        "fontSize": 9,
+        "editorHide": true,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h3>Finally check whether any rarepowershellioc event was generated</h3>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1738344541522_1150043858",
+      "id": "paragraph_1738344541522_1150043858",
+      "dateCreated": "2025-01-31T17:29:01+0000",
+      "dateStarted": "2025-01-31T17:30:45+0000",
+      "dateFinished": "2025-01-31T17:30:45+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43168"
+    },
+    {
+      "text": "%impala\nuse caspida; select * from rarepowershellioc;",
+      "user": "admin",
+      "dateUpdated": "2025-01-31T17:31:46+0000",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/sql",
+        "fontSize": 9,
+        "results": {
+          "1": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "eventtime": "string",
+                      "day": "string",
+                      "dayofweek": "string",
+                      "week": "string",
+                      "weekend": "string",
+                      "month": "string",
+                      "holiday": "string",
+                      "processname": "string",
+                      "targetuserid": "string",
+                      "numoccurrencefortgtuser": "string",
+                      "totalcountfortgtuser": "string",
+                      "logintargetdeviceid": "string",
+                      "numoccurrencefortgtdevice": "string",
+                      "totalcountfortgtdevice": "string",
+                      "ougroup": "string",
+                      "numoccurrenceforusergroup": "string",
+                      "totalcountforusergroup": "string",
+                      "starttime": "string",
+                      "endtime": "string",
+                      "tspartition": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : -1\n"
+          },
+          {
+            "type": "TABLE",
+            "data": "eventtime\tday\tdayofweek\tweek\tweekend\tmonth\tholiday\tprocessname\ttargetuserid\tnumoccurrencefortgtuser\ttotalcountfortgtuser\tlogintargetdeviceid\tnumoccurrencefortgtdevice\ttotalcountfortgtdevice\tougroup\tnumoccurrenceforusergroup\ttotalcountforusergroup\tstarttime\tendtime\ttspartition\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1738344645351_830594574",
+      "id": "paragraph_1738344645351_830594574",
+      "dateCreated": "2025-01-31T17:30:45+0000",
+      "dateStarted": "2025-01-31T17:31:46+0000",
+      "dateFinished": "2025-01-31T17:31:46+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43169"
+    }
+  ],
+  "name": "Powershell events checking",
+  "id": "2KNWGA7TX",
+  "defaultInterpreterGroup": "impala",
+  "version": "0.10.1",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/Powershell events checking"
+}
